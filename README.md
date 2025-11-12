@@ -1,7 +1,8 @@
 
-# Atlas-modellen – Landingsside (WIP)
+# Atlas-modellen / The Atlas Model
 
-Dette repoet inneholder en **statisk landingsside** for Atlas-modellen (åpen kildekode, tverrsektorielt ungdomsarbeid). Siden er designet som en **pitch/introduksjon**, med fokus på animasjoner, moderne gradienter og tydelig presentasjon av modulene.
+Atlas-modellen er et åpent rammeverk utviklet av **Unge Vil** for å bygge bærekraftige og kreative prosjekter for unge.  
+Internasjonalt er modellen kjent som **The Atlas Model**. Landingssiden er designet som en **pitch/introduksjon**, med fokus på animasjoner, moderne gradienter og tydelig presentasjon av modulene.
 
 > **Status:** Work in progress – vi søker aktivt støtte for videre utvikling.
 
@@ -71,3 +72,15 @@ Endre disse filene uten å touche HTML.
 
 ## 🌗 Light/Dark mode
 Klikk 🌗-knappen øverst til høyre for å bytte. Valg lagres i `localStorage`.
+
+📍 Nettsider  
+- Norsk: [https://atlasmodellen.no](https://atlasmodellen.no)  
+- Engelsk / Internasjonal: [https://atlasmodel.org](https://atlasmodel.org)
+
+🪪 Lisens  
+Modellen er lisensiert under **Creative Commons Attribution–No Derivatives 4.0 International (CC BY-ND 4.0)**.  
+Du kan bruke og dele modellen fritt, så lenge du navngir "Atlas-modellen" / "The Atlas Model" og "Unge Vil" som kilde.  
+Du har ikke lov til å publisere endrede versjoner av modellen.
+
+🔗 Eksempel på kreditering  
+> Basert på Atlas-modellen, utviklet av Unge Vil – [atlasmodellen.no](https://atlasmodellen.no) / [atlasmodel.org](https://atlasmodel.org)
