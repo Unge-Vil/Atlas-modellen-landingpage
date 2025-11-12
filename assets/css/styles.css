@@ -95,7 +95,7 @@ body::before{ background:rgba(159,92,255,.6); top:-220px; right:-120px; }
 body::after{ background:rgba(18,196,173,.45); bottom:-200px; left:-150px; animation-duration: 30s; }
 
 /* Animated gradient backdrop in hero */
-.hero{
+.hero{ 
   position:relative;
   min-height: 92vh;
   display:grid;
@@ -128,6 +128,14 @@ body::after{ background:rgba(18,196,173,.45); bottom:-200px; left:-150px; animat
   opacity:.55;
 }
 .hero--burst .hero__inner{ position:relative; z-index:1; }
+.hero__wave{
+  position:absolute;
+  inset:auto 0 -1px;
+  width:100%;
+  pointer-events:none;
+  z-index:0;
+}
+.hero__wave img{ width:100%; display:block; }
 @keyframes spin{ to{ transform:rotate(368deg) scale(1.08);} }
 .hero__inner{
   text-align:center;

@@ -1,0 +1,103 @@
+/*
+  Design tokens for the Atlas Model redesign.
+  These variables establish the design system foundation for both
+  light and dark experiences, and provide shared values for
+  spacing, typography, elevation, and interaction states.
+*/
+
+:root {
+  color-scheme: dark;
+
+  /* Brand palette */
+  --brand-primary: #12c4ad;
+  --brand-secondary: #8e2de2;
+  --brand-tertiary: #4a00e0;
+  --accent-magenta: #ff7ad4;
+
+  /* Neutral palette */
+  --color-bg: #0f0f16;
+  --color-surface: rgba(255, 255, 255, 0.06);
+  --color-surface-elevated: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-text: #e7e8ee;
+  --color-text-muted: rgba(231, 232, 238, 0.72);
+  --color-text-subtle: rgba(231, 232, 238, 0.48);
+  --color-focus: #12c4ad;
+  --color-success: #2dd9a7;
+  --color-warning: #ffd155;
+  --color-danger: #ff5c92;
+
+  /* Gradients */
+  --gradient-idealab: linear-gradient(135deg, #12c4ad 0%, #4a00e0 100%);
+  --gradient-blankeark: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  --gradient-forstaelse: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+  --gradient-gi-det-videre: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+
+  /* Typography */
+  --font-sans: "Montserrat", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-heading: "Montserrat", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Type scale (fluid using clamp) */
+  --step--2: clamp(0.74rem, 0.68rem + 0.22vw, 0.82rem);
+  --step--1: clamp(0.83rem, 0.76rem + 0.28vw, 0.94rem);
+  --step-0: clamp(1rem, 0.92rem + 0.35vw, 1.12rem);
+  --step-1: clamp(1.22rem, 1.08rem + 0.48vw, 1.4rem);
+  --step-2: clamp(1.5rem, 1.28rem + 0.65vw, 1.75rem);
+  --step-3: clamp(1.83rem, 1.52rem + 0.87vw, 2.18rem);
+  --step-4: clamp(2.2rem, 1.8rem + 1.16vw, 2.72rem);
+  --step-5: clamp(2.64rem, 2.12rem + 1.54vw, 3.4rem);
+
+  /* Spacing */
+  --space-2xs: clamp(0.25rem, 0.22rem + 0.13vw, 0.35rem);
+  --space-xs: clamp(0.5rem, 0.44rem + 0.17vw, 0.62rem);
+  --space-sm: clamp(0.75rem, 0.66rem + 0.22vw, 0.88rem);
+  --space-md: clamp(1rem, 0.88rem + 0.35vw, 1.25rem);
+  --space-lg: clamp(1.5rem, 1.32rem + 0.48vw, 1.8rem);
+  --space-xl: clamp(2rem, 1.76rem + 0.7vw, 2.5rem);
+  --space-2xl: clamp(3rem, 2.64rem + 1.04vw, 3.6rem);
+  --space-3xl: clamp(4rem, 3.52rem + 1.39vw, 4.8rem);
+
+  /* Layout tokens */
+  --container-max: 72rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.75rem;
+  --shadow-soft: 0 18px 45px rgba(12, 16, 42, 0.35);
+  --shadow-strong: 0 28px 60px rgba(23, 16, 90, 0.55);
+  --transition-base: 220ms ease;
+}
+
+:root.theme-light {
+  color-scheme: light;
+  --color-bg: #f7f8fb;
+  --color-surface: rgba(12, 16, 42, 0.04);
+  --color-surface-elevated: rgba(12, 16, 42, 0.08);
+  --color-border: rgba(12, 16, 42, 0.12);
+  --color-text: #1b1c22;
+  --color-text-muted: rgba(27, 28, 34, 0.72);
+  --color-text-subtle: rgba(27, 28, 34, 0.5);
+  --color-focus: #0f8d7d;
+}
+
+:root.theme-dark {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not(.theme-dark) {
+    color-scheme: light;
+    --color-bg: #f7f8fb;
+    --color-surface: rgba(12, 16, 42, 0.04);
+    --color-surface-elevated: rgba(12, 16, 42, 0.08);
+    --color-border: rgba(12, 16, 42, 0.12);
+    --color-text: #1b1c22;
+    --color-text-muted: rgba(27, 28, 34, 0.72);
+    --color-text-subtle: rgba(27, 28, 34, 0.5);
+    --color-focus: #0f8d7d;
+  }
+}

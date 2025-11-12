@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240" preserveAspectRatio="none" role="img" aria-labelledby="title desc">
+  <title id="title">Wave divider</title>
+  <desc id="desc">Organic wave shape used to transition between hero and next section.</desc>
+  <defs>
+    <linearGradient id="heroWaveGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#12c4ad" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#8e2de2" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#4a00e0" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+  <path d="M0 120L60 116C120 112 240 104 360 120C480 136 600 176 720 176C840 176 960 136 1080 120C1200 104 1320 112 1380 116L1440 120V240H0Z" fill="url(#heroWaveGradient)" />
+  <path d="M0 140L60 132C120 124 240 108 360 132C480 156 600 220 720 220C840 220 960 156 1080 132C1200 108 1320 124 1380 132L1440 140V240H0Z" fill="#0f0f16" opacity="0.75" />
+</svg>
