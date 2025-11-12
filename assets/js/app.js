@@ -220,6 +220,171 @@ if(moduleCarousel){
   updateEdgeState();
 }
 
+// Story slider / timeline
+const storySlider = document.querySelector('[data-slider]');
+if(storySlider){
+  const slides = Array.from(storySlider.querySelectorAll('[data-slide]'));
+  const prevButton = storySlider.querySelector('[data-slider-prev]');
+  const nextButton = storySlider.querySelector('[data-slider-next]');
+  const dotsHost = storySlider.querySelector('[data-slider-dots]');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let activeIndex = Math.max(0, slides.findIndex(slide=>slide.classList.contains('is-active')));
+  if(!slides[activeIndex]){ activeIndex = 0; }
+  let liveResetTimer = null;
+
+  const syncMotionClass = ()=>{
+    storySlider.classList.toggle('prefers-reduced-motion', prefersReducedMotion.matches);
+  };
+
+  if(typeof prefersReducedMotion.addEventListener === 'function'){
+    prefersReducedMotion.addEventListener('change', syncMotionClass);
+  }else if(typeof prefersReducedMotion.addListener === 'function'){
+    prefersReducedMotion.addListener(syncMotionClass);
+  }
+
+  const setAriaLive = (mode)=>{
+    if(liveResetTimer) window.clearTimeout(liveResetTimer);
+    storySlider.setAttribute('aria-live', mode);
+    if(mode === 'assertive'){
+      liveResetTimer = window.setTimeout(()=>{
+        storySlider.setAttribute('aria-live', 'polite');
+      }, 700);
+    }
+  };
+
+  const storyDots = slides.map((slide, index)=>{
+    if(!dotsHost) return null;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'story-slider__dot';
+    const title = slide.querySelector('.story-slide__title');
+    const year = slide.querySelector('.story-slide__year');
+    const labelParts = [year ? year.textContent.trim() : `Slide ${index + 1}`];
+    if(title){ labelParts.push(title.textContent.trim()); }
+    button.setAttribute('aria-label', `Show story: ${labelParts.join(' – ')}`);
+    if(slide.id){ button.setAttribute('aria-controls', slide.id); }
+    button.dataset.sliderDot = String(index);
+    dotsHost.appendChild(button);
+    button.addEventListener('click', ()=>{
+      goTo(index, { userInitiated: true, focus: shouldFocusSlide() });
+    });
+    button.addEventListener('keydown', (event)=>{
+      if(event.key === 'ArrowRight' || event.key === 'ArrowLeft'){
+        event.preventDefault();
+        const direction = event.key === 'ArrowRight' ? 1 : -1;
+        goTo(activeIndex + direction, { userInitiated: true, focus: true });
+      }
+    });
+    return button;
+  }).filter(Boolean);
+
+  const storySlides = slides;
+
+  const focusWithoutScroll = (element)=>{
+    if(!element) return;
+    try{
+      element.focus({ preventScroll: true });
+    }catch(_error){
+      element.focus();
+    }
+  };
+
+  const shouldFocusSlide = ()=>{
+    const activeElement = document.activeElement;
+    return !!(activeElement && activeElement.closest('[data-slider]') === storySlider && activeElement.tagName === 'BUTTON');
+  };
+
+  const updateNavState = ()=>{
+    if(prevButton) prevButton.disabled = activeIndex <= 0;
+    if(nextButton) nextButton.disabled = activeIndex >= storySlides.length - 1;
+  };
+
+  const applyActiveState = (index, { announce = false, focus = false } = {})=>{
+    storySlides.forEach((slide, idx)=>{
+      const isActive = idx === index;
+      slide.classList.toggle('is-active', isActive);
+      slide.setAttribute('aria-hidden', String(!isActive));
+      slide.setAttribute('tabindex', isActive ? '0' : '-1');
+      if(isActive){
+        slide.setAttribute('aria-current', 'true');
+        storySlider.setAttribute('aria-activedescendant', slide.id || '');
+        if(focus){
+          focusWithoutScroll(slide);
+        }
+      }else{
+        slide.removeAttribute('aria-current');
+      }
+    });
+
+    storyDots.forEach((dot, idx)=>{
+      const isActive = idx === index;
+      dot.classList.toggle('is-active', isActive);
+      if(isActive){
+        dot.setAttribute('aria-current', 'true');
+      }else{
+        dot.removeAttribute('aria-current');
+      }
+    });
+
+    updateNavState();
+
+    if(announce){
+      setAriaLive('assertive');
+    }
+  };
+
+  const goTo = (index, { userInitiated = false, focus = false } = {})=>{
+    const clamped = Math.max(0, Math.min(storySlides.length - 1, index));
+    if(clamped === activeIndex) return;
+    activeIndex = clamped;
+    applyActiveState(activeIndex, { announce: userInitiated, focus });
+  };
+
+  if(prevButton){
+    prevButton.addEventListener('click', ()=>{
+      goTo(activeIndex - 1, { userInitiated: true, focus: shouldFocusSlide() });
+    });
+  }
+
+  if(nextButton){
+    nextButton.addEventListener('click', ()=>{
+      goTo(activeIndex + 1, { userInitiated: true, focus: shouldFocusSlide() });
+    });
+  }
+
+  storySlider.addEventListener('keydown', (event)=>{
+    if(event.key === 'ArrowRight' || event.key === 'ArrowLeft'){
+      event.preventDefault();
+      const direction = event.key === 'ArrowRight' ? 1 : -1;
+      goTo(activeIndex + direction, { userInitiated: true, focus: true });
+    }else if(event.key === 'Home'){
+      event.preventDefault();
+      goTo(0, { userInitiated: true, focus: true });
+    }else if(event.key === 'End'){
+      event.preventDefault();
+      goTo(storySlides.length - 1, { userInitiated: true, focus: true });
+    }
+  });
+
+  const sliderObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.target !== storySlider) return;
+      storySlider.classList.toggle('is-visible', entry.isIntersecting);
+      if(entry.isIntersecting){
+        setAriaLive('polite');
+      }else{
+        setAriaLive('off');
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sliderObserver.observe(storySlider);
+
+  syncMotionClass();
+  applyActiveState(activeIndex, { announce: false, focus: false });
+  updateNavState();
+}
+
 // Parallax tilt in hero title
 const hero = document.querySelector('.hero');
 hero.addEventListener('mousemove', (e)=>{
