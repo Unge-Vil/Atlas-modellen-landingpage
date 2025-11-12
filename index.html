@@ -12,7 +12,7 @@
 </head>
 <body>
   <button class="theme-toggle" aria-label="Bytt mellom lys/mørk">🌗</button>
-  <header class="hero">
+  <header class="hero hero--burst">
     <div class="orbs">
       <div class="orb p1"></div>
       <div class="orb p2"></div>
@@ -42,22 +42,22 @@
         <h2 class="section-title">Modulene</h2>
         <p class="section-lead">Bygg stein‑på‑stein eller bruk modulene hver for seg. Alt er gratis å bruke og tilpasse.</p>
         <div class="module-grid">
-          <div class="module-card tilt" data-variant="idelab">
+          <div class="module-card" data-variant="idelab">
             <img src="assets/img/module-idelab.png" alt="Idélab" width="1000" height="1000" loading="lazy" decoding="async">
             <h3 class="module-title">Idélab</h3>
             <p class="module-desc">Kreativ idéutvikling + eksperimentering.</p>
           </div>
-          <div class="module-card tilt" data-variant="blanke-ark">
+          <div class="module-card" data-variant="blanke-ark">
             <img src="assets/img/module-blanke-ark.png" alt="Blanke ark" width="1000" height="1000" loading="lazy" decoding="async">
             <h3 class="module-title">Blanke ark</h3>
             <p class="module-desc">Reframing og ny start.</p>
           </div>
-          <div class="module-card tilt" data-variant="forstaelse">
+          <div class="module-card" data-variant="forstaelse">
             <img src="assets/img/module-forstaelse.png" alt="Forståelsesmodul" width="1000" height="1000" loading="lazy" decoding="async">
             <h3 class="module-title">Forståelsesmodul</h3>
             <p class="module-desc">Felles forståelse og språk mellom aktører.</p>
           </div>
-          <div class="module-card tilt" data-variant="gi-det-videre">
+          <div class="module-card" data-variant="gi-det-videre">
             <img src="assets/img/module-gi-det-videre.png" alt="Gi det videre" width="1000" height="1000" loading="lazy" decoding="async">
             <h3 class="module-title">Gi det videre</h3>
             <p class="module-desc">Mentorering, rekruttering og kulturbygging.</p>
@@ -74,12 +74,20 @@
       </div>
     </section>
 
-    <section id="quote" class="reveal">
+    <section id="quote" class="reveal feature-face">
       <div class="container">
-        <h2 class="section-title">Et ansikt på modellen</h2>
-        <div class="quote">
-          <img src="assets/img/jan-helge.jpg" alt="Jan Helge Naley" width="1440" height="1080" loading="lazy" decoding="async">
-          <div>
+        <div class="face-wrapper">
+          <div class="face-visual">
+            <div class="face-frame">
+              <img src="assets/img/jan-helge.jpg" alt="Jan Helge Naley" width="1440" height="1080" loading="lazy" decoding="async">
+              <span class="face-burst b1"></span>
+              <span class="face-burst b2"></span>
+              <span class="face-burst b3"></span>
+            </div>
+          </div>
+          <div class="face-story">
+            <span class="eyebrow">Møt menneskene bak</span>
+            <h2 class="section-title">Et ansikt på modellen</h2>
             <blockquote>«Etter mange år hvor vi fikk jobbe med kreativitet, utvikling og ungdom i ulike sektorer startet vi Unge Vil. Her ønsker vi å hjelpe samt fasilitere mer samarbeid mellom ulike sektorer. Med Atlas modellen er håpet og kunne lage en gratis modell som alle på tvers av sektorer kan bruke til ungdomsarbeid samt samarbeid mellom sektorer.»</blockquote>
             <footer>— <strong>Jan Helge Naley</strong>, koordinator i Unge Vil</footer>
             <div class="credit">Foto: Growing Youth Work – <a href="https://www.growingyouthwork.eu/" target="_blank" rel="noopener">growingyouthwork.eu</a></div>
@@ -103,12 +111,29 @@
         <div class="logo-grid"></div>
       </div>
     </section>
+
+    <section id="license" class="reveal license-callout">
+      <div class="container">
+        <div class="license-card">
+          <h2 class="section-title">Lisens: CC BY-ND 4.0</h2>
+          <p class="section-lead">Atlas-modellen deles med verden under <strong>Creative Commons Attribution – No Derivatives 4.0 International</strong>. Du kan bruke og videreformidle modellen, så lenge du krediterer Unge Vil og bevarer innholdet uendret.</p>
+          <a class="button" href="https://creativecommons.org/licenses/by-nd/4.0/deed.no" target="_blank" rel="noopener">Les lisensen</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <img src="assets/img/UngeVil-dark-line.png" alt="Unge Vil logo" width="1345" height="405" loading="lazy" decoding="async">
-    <small>© Unge Vil. Atlas‑modellen er åpen kildekode – bygg videre og del tilbake. | Kontakt: <a href="mailto:org@ungevil.no">org@ungevil.no</a></small>
-    <a href="https://www.ungevil.no/" target="_blank" rel="noopener">ungevil.no</a>
+    <div class="footer-inner">
+      <img src="assets/img/UngeVil-dark-line.png" alt="Unge Vil logo" width="1345" height="405" loading="lazy" decoding="async">
+      <div class="footer-meta">
+        <small>© Unge Vil. Atlas‑modellen er delt under <strong>CC BY-ND 4.0</strong>. Kontakt: <a href="mailto:org@ungevil.no">org@ungevil.no</a></small>
+        <div class="footer-links">
+          <a href="https://www.ungevil.no/" target="_blank" rel="noopener">ungevil.no</a>
+          <a href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noopener">Creative Commons</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script src="assets/js/app.js"></script>

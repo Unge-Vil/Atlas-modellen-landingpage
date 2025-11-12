@@ -6,6 +6,8 @@ Internasjonalt er modellen kjent som **The Atlas Model**. Landingssiden er desig
 
 > **Status:** Work in progress – vi søker aktivt støtte for videre utvikling.
 
+> 🪪 **Lisens:** Atlas-modellen deles under [Creative Commons Attribution – No Derivatives 4.0 International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/). Krediter «Unge Vil» og bevar innholdet uendret når du bruker modellen.
+
 ## 🏁 Hurtigstart (GitHub Pages)
 
 1. **Fork/klon** repoet til din GitHub-konto.
@@ -77,10 +79,12 @@ Klikk 🌗-knappen øverst til høyre for å bytte. Valg lagres i `localStorage`
 - Norsk: [https://atlasmodellen.no](https://atlasmodellen.no)  
 - Engelsk / Internasjonal: [https://atlasmodel.org](https://atlasmodel.org)
 
-🪪 Lisens  
-Modellen er lisensiert under **Creative Commons Attribution–No Derivatives 4.0 International (CC BY-ND 4.0)**.  
-Du kan bruke og dele modellen fritt, så lenge du navngir "Atlas-modellen" / "The Atlas Model" og "Unge Vil" som kilde.  
-Du har ikke lov til å publisere endrede versjoner av modellen.
+🪪 Lisens
+Atlas-modellen er lisensiert under **Creative Commons Attribution–No Derivatives 4.0 International (CC BY-ND 4.0)**.
+
+- 🔗 Lisens: [creativecommons.org/licenses/by-nd/4.0/](https://creativecommons.org/licenses/by-nd/4.0/)
+- ✅ Du kan bruke og dele modellen fritt, så lenge du navngir "Atlas-modellen" / "The Atlas Model" og "Unge Vil" som kilde.
+- 🚫 Du har ikke lov til å publisere endrede versjoner av modellen.
 
 🔗 Eksempel på kreditering  
 > Basert på Atlas-modellen, utviklet av Unge Vil – [atlasmodellen.no](https://atlasmodellen.no) / [atlasmodel.org](https://atlasmodel.org)
