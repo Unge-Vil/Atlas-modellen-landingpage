@@ -3,297 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Atlas Model – Open source framework for youth work | Unge Vil</title>
-  <meta name="description" content="Atlas Model is an open source framework for youth work and cross-sector collaboration. Built and maintained by Unge Vil.">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="styles/tokens.css">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="icon" href="assets/img/atlas-logo.png">
+  <title>Atlas Model – Redirecting…</title>
+  <script>
+    (function() {
+      var stored = localStorage.getItem('atlas-lang');
+      var browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      var resolved = stored || (browserLang.startsWith('no') ? 'no' : 'en');
+      var target = resolved === 'no' ? '/no/' : '/en/';
+      window.location.replace(target);
+    })();
+  </script>
+  <style>
+    body {
+      font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f0f16;
+      color: #e7e8ee;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    a {
+      color: #12c4ad;
+    }
+  </style>
 </head>
 <body>
-  <button class="theme-toggle" aria-label="Toggle light and dark">🌗</button>
-  <header class="hero hero--burst">
-    <div class="orbs">
-      <div class="orb p1"></div>
-      <div class="orb p2"></div>
-      <div class="orb p3"></div>
-    </div>
-    <div class="hero__inner reveal in">
-      <span class="badge"><span class="dot"></span> Powered by <strong>&nbsp;Unge&nbsp;Vil</strong></span>
-      <h1><span class="gradient-text">Atlas Model</span></h1>
-      <p class="lead">An <strong>open source</strong> framework for creative youth work and cross-sector collaboration. Use it freely. Adapt it. Share it back.</p>
-      <div class="cta">
-        <a class="button" href="#modules">Explore the modules</a>
-        <a class="button secondary" href="#quote">Who is behind it?</a>
-      </div>
-    </div>
-    <div class="hero__wave" aria-hidden="true">
-      <img src="assets/svg/waves/hero-wave.svg" alt="">
-    </div>
-  </header>
-
-  <main>
-    <section id="wip" class="reveal">
-      <div class="container">
-        <h2 class="section-title">🚧 In development</h2>
-        <p class="section-lead">Atlas is a living project — we keep <strong>building</strong> and <strong>testing</strong>, and we're seeking support to create tools, courses, and documentation. Contact us at <a href="mailto:org@ungevil.no">org@ungevil.no</a>.</p>
-      </div>
-    </section>
-
-    <section id="modules" class="reveal">
-      <div class="container">
-        <h2 class="section-title">Modules</h2>
-        <p class="section-lead">Build step by step or use each module on its own. Everything is free to use and adapt.</p>
-        <div class="module-experience">
-          <ol class="module-steps" aria-label="Atlas Model module steps">
-            <li class="module-step">
-              <button type="button" class="module-step-btn is-active" data-target="module-idelab" aria-controls="module-idelab" aria-current="step" aria-label="Step 1: Idea Lab">
-                <span class="module-step__number">1</span>
-                <span class="module-step__label">Idea Lab</span>
-              </button>
-            </li>
-            <li class="module-step">
-              <button type="button" class="module-step-btn" data-target="module-blanke-ark" aria-controls="module-blanke-ark" aria-label="Step 2: Blank Canvas">
-                <span class="module-step__number">2</span>
-                <span class="module-step__label">Blank Canvas</span>
-              </button>
-            </li>
-            <li class="module-step">
-              <button type="button" class="module-step-btn" data-target="module-forstaelse" aria-controls="module-forstaelse" aria-label="Step 3: Understanding">
-                <span class="module-step__number">3</span>
-                <span class="module-step__label">Understanding</span>
-              </button>
-            </li>
-            <li class="module-step">
-              <button type="button" class="module-step-btn" data-target="module-gi-det-videre" aria-controls="module-gi-det-videre" aria-label="Step 4: Pass It On">
-                <span class="module-step__number">4</span>
-                <span class="module-step__label">Pass It On</span>
-              </button>
-            </li>
-          </ol>
-          <div class="module-progress" aria-hidden="true">
-            <span class="module-progress__track"></span>
-            <span class="module-progress__bar"></span>
-          </div>
-          <div class="module-carousel" role="region" aria-label="Atlas modules" aria-roledescription="carousel" aria-live="polite" tabindex="0">
-            <div class="module-grid" role="list">
-              <article class="module-card" id="module-idelab" data-variant="idelab" data-step="1" role="listitem" aria-labelledby="module-idelab-title" aria-describedby="module-idelab-desc" tabindex="-1">
-                <span class="module-step-chip" aria-hidden="true">Step 01</span>
-                <img src="assets/img/module-idelab.png" alt="Idea Lab" width="1000" height="1000" loading="lazy" decoding="async">
-                <h3 class="module-title" id="module-idelab-title">Idea Lab</h3>
-                <p class="module-desc" id="module-idelab-desc">Creative ideation and experimentation.</p>
-              </article>
-              <article class="module-card" id="module-blanke-ark" data-variant="blanke-ark" data-step="2" role="listitem" aria-labelledby="module-blanke-ark-title" aria-describedby="module-blanke-ark-desc" tabindex="-1">
-                <span class="module-step-chip" aria-hidden="true">Step 02</span>
-                <img src="assets/img/module-blanke-ark.png" alt="Blank Canvas" width="1000" height="1000" loading="lazy" decoding="async">
-                <h3 class="module-title" id="module-blanke-ark-title">Blank Canvas</h3>
-                <p class="module-desc" id="module-blanke-ark-desc">Reframing challenges and making a fresh start.</p>
-              </article>
-              <article class="module-card" id="module-forstaelse" data-variant="forstaelse" data-step="3" role="listitem" aria-labelledby="module-forstaelse-title" aria-describedby="module-forstaelse-desc" tabindex="-1">
-                <span class="module-step-chip" aria-hidden="true">Step 03</span>
-                <img src="assets/img/module-forstaelse.png" alt="Understanding module" width="1000" height="1000" loading="lazy" decoding="async">
-                <h3 class="module-title" id="module-forstaelse-title">Understanding</h3>
-                <p class="module-desc" id="module-forstaelse-desc">Creating shared language across partners.</p>
-              </article>
-              <article class="module-card" id="module-gi-det-videre" data-variant="gi-det-videre" data-step="4" role="listitem" aria-labelledby="module-gi-det-videre-title" aria-describedby="module-gi-det-videre-desc" tabindex="-1">
-                <span class="module-step-chip" aria-hidden="true">Step 04</span>
-                <img src="assets/img/module-gi-det-videre.png" alt="Pass it on" width="1000" height="1000" loading="lazy" decoding="async">
-                <h3 class="module-title" id="module-gi-det-videre-title">Pass It On</h3>
-                <p class="module-desc" id="module-gi-det-videre-desc">Mentoring, recruitment, and culture building.</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="using" class="reveal">
-      <div class="container">
-        <h2 class="section-title">Already in use by</h2>
-        <p class="section-lead">A selection of organisations piloting or adopting the Atlas Model.</p>
-        <div class="logo-grid orgs">
-          <figure class="logo-card">
-            <img src="assets/img/logo-nordic-hub.svg" alt="" aria-hidden="true" width="160" height="60" loading="lazy" decoding="async">
-            <figcaption class="sr-only">Nordic Hub – regional youth partners</figcaption>
-          </figure>
-          <figure class="logo-card">
-            <img src="assets/img/logo-youth-mosaic.svg" alt="" aria-hidden="true" width="160" height="60" loading="lazy" decoding="async">
-            <figcaption class="sr-only">Youth Mosaic Collective</figcaption>
-          </figure>
-          <figure class="logo-card">
-            <img src="assets/img/logo-civic-spark.svg" alt="" aria-hidden="true" width="160" height="60" loading="lazy" decoding="async">
-            <figcaption class="sr-only">Civic Spark Labs</figcaption>
-          </figure>
-          <figure class="logo-card">
-            <img src="assets/img/logo-open-culture.svg" alt="" aria-hidden="true" width="160" height="60" loading="lazy" decoding="async">
-            <figcaption class="sr-only">Open Culture Fund</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="quote" class="reveal feature-face">
-      <div class="container">
-        <div class="face-wrapper">
-          <div class="face-visual">
-            <div class="face-frame">
-              <img src="assets/img/jan-helge.jpg" alt="Jan Helge Naley" width="1440" height="1080" loading="lazy" decoding="async">
-              <span class="face-burst b1"></span>
-              <span class="face-burst b2"></span>
-              <span class="face-burst b3"></span>
-            </div>
-          </div>
-            <div class="face-story">
-              <span class="eyebrow">Meet the people behind it</span>
-              <h2 class="section-title">Putting a face to the model</h2>
-              <div class="story-slider" data-slider role="region" aria-label="Atlas Model timeline" aria-roledescription="carousel" aria-live="off">
-                <div class="story-slider__viewport" data-slider-viewport>
-                  <article class="story-slide is-active" data-slide id="story-2016" aria-roledescription="slide" aria-label="2016 – Seeds of collaboration" aria-hidden="false" tabindex="0">
-                    <header class="story-slide__header">
-                      <span class="story-slide__year">2016</span>
-                      <span class="story-slide__title">Seeds of collaboration</span>
-                    </header>
-                    <p class="story-slide__lede">Atlas began as a local experiment linking youth clubs with cultural institutions to test what cross-sector collaboration could look like in practice.</p>
-                    <blockquote id="story-2016-quote">“We realised that young people thrived when the barriers between public, private, and civic actors softened. The earliest Atlas sessions were about building trust and a shared language.”</blockquote>
-                    <footer>— <strong>Jan Helge Naley</strong>, co-founder</footer>
-                  </article>
-                  <article class="story-slide" data-slide id="story-2020" aria-roledescription="slide" aria-label="2020 – Building a shared language" aria-hidden="true" tabindex="-1">
-                    <header class="story-slide__header">
-                      <span class="story-slide__year">2020</span>
-                      <span class="story-slide__title">Building a shared language</span>
-                    </header>
-                    <p class="story-slide__lede">Partner organisations across the Nordic region started prototyping the four Atlas modules, sharing insight on facilitation, recruitment, and mentorship.</p>
-                    <blockquote id="story-2020-quote">“Testing Atlas with partners proved that the methodology helped stakeholders align. It gave practitioners a repeatable framework for youth empowerment.”</blockquote>
-                    <footer>— <strong>Selina Patel</strong>, programme designer</footer>
-                  </article>
-                  <article class="story-slide" data-slide id="story-2023" aria-roledescription="slide" aria-label="2023 – Open-source release" aria-hidden="true" tabindex="-1">
-                    <header class="story-slide__header">
-                      <span class="story-slide__year">2023</span>
-                      <span class="story-slide__title">Open-source release</span>
-                    </header>
-                    <p class="story-slide__lede">With community feedback in hand, the Atlas Model was published openly to accelerate new youth initiatives and make collaboration tools free for everyone.</p>
-                    <blockquote id="story-2023-quote">“With the Atlas Model we hope to offer a framework that anyone can adapt for youth work and partnerships across sectors — and build the next generation of opportunities.”</blockquote>
-                    <footer>— <strong>Jan Helge Naley</strong>, coordinator at Unge Vil</footer>
-                  </article>
-                </div>
-                <div class="story-slider__controls">
-                  <button type="button" class="story-slider__nav story-slider__nav--prev" data-slider-prev aria-controls="story-slider-dots" aria-label="Show previous story" disabled>
-                    <span aria-hidden="true">‹</span>
-                  </button>
-                  <div class="story-slider__dots" id="story-slider-dots" role="list" data-slider-dots></div>
-                  <button type="button" class="story-slider__nav story-slider__nav--next" data-slider-next aria-controls="story-slider-dots" aria-label="Show next story">
-                    <span aria-hidden="true">›</span>
-                  </button>
-                </div>
-              </div>
-              <div class="credit">Photo: Growing Youth Work – <a href="https://www.growingyouthwork.eu/" target="_blank" rel="noopener">growingyouthwork.eu</a></div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonials" class="reveal">
-      <div class="container">
-        <h2 class="section-title">What people say</h2>
-        <p class="section-lead">Add quick quotes as pilot projects go live.</p>
-        <div class="testimonials">
-          <figure class="testi">
-            <div class="testi__brand">
-              <img src="assets/img/logo-nordic-hub.svg" alt="" aria-hidden="true" width="120" height="48" loading="lazy" decoding="async">
-              <span class="sr-only">Nordic Hub</span>
-            </div>
-            <blockquote>
-              “Atlas helped our municipal youth teams build a shared roadmap. The modules keep partners aligned without slowing down experimentation.”
-            </blockquote>
-            <figcaption>
-              <span class="testi__name">Amina Solberg</span>
-              <span class="testi__role">Programme lead, Nordic Hub</span>
-            </figcaption>
-          </figure>
-          <figure class="testi">
-            <div class="testi__brand">
-              <img src="assets/img/logo-youth-mosaic.svg" alt="" aria-hidden="true" width="120" height="48" loading="lazy" decoding="async">
-              <span class="sr-only">Youth Mosaic</span>
-            </div>
-            <blockquote>
-              “The Idea Lab blueprint gave our young facilitators confidence from day one. We could remix assets and still stay true to the Atlas values.”
-            </blockquote>
-            <figcaption>
-              <span class="testi__name">Leyla Alvarez</span>
-              <span class="testi__role">Creative mentor, Youth Mosaic Collective</span>
-            </figcaption>
-          </figure>
-          <figure class="testi">
-            <div class="testi__brand">
-              <img src="assets/img/logo-civic-spark.svg" alt="" aria-hidden="true" width="120" height="48" loading="lazy" decoding="async">
-              <span class="sr-only">Civic Spark Labs</span>
-            </div>
-            <blockquote>
-              “We rely on Atlas to onboard new civic partners quickly. Its shared language keeps community groups, schools, and businesses moving together.”
-            </blockquote>
-            <figcaption>
-              <span class="testi__name">Jonas Rautiainen</span>
-              <span class="testi__role">Director, Civic Spark Labs</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="support" class="reveal">
-      <div class="container">
-        <h2 class="section-title">Thanks for the support</h2>
-        <p class="section-lead">Atlas is built through volunteer effort and support from partners and grant programmes.</p>
-        <div class="logo-grid supporters">
-          <figure class="logo-card">
-            <img src="assets/img/logo-open-culture.svg" alt="" aria-hidden="true" width="160" height="60" loading="lazy" decoding="async">
-            <figcaption class="sr-only">Open Culture Fund</figcaption>
-          </figure>
-          <figure class="logo-card">
-            <img src="assets/img/UngeVil-dark-line.png" alt="" aria-hidden="true" width="160" height="60" loading="lazy" decoding="async">
-            <figcaption class="sr-only">Unge Vil</figcaption>
-          </figure>
-          <figure class="logo-card">
-            <img src="assets/img/GitBookLogoLight.svg" alt="" aria-hidden="true" width="160" height="60" loading="lazy" decoding="async">
-            <figcaption class="sr-only">GitBook</figcaption>
-          </figure>
-          <figure class="logo-card logo-card--quote">
-            <blockquote>
-              “Funding Atlas means investing in young people who redesign their own communities. We support the model because it keeps collaboration open.”
-            </blockquote>
-            <figcaption>— <strong>Open Culture Fund</strong>, annual supporter</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="license" class="reveal license-callout">
-      <div class="container">
-        <div class="license-card">
-          <h2 class="section-title">License: CC BY-ND 4.0</h2>
-          <p class="section-lead">Atlas Model is shared under the <strong>Creative Commons Attribution – No Derivatives 4.0 International</strong> license. You can use and redistribute the model as long as you credit Unge Vil and keep the contents unchanged.</p>
-          <a class="button" href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noopener">Read the license</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <img src="assets/img/UngeVil-dark-line.png" alt="Unge Vil logo" width="1345" height="405" loading="lazy" decoding="async">
-      <div class="footer-meta">
-        <small>© Unge Vil. Atlas Model is shared under <strong>CC BY-ND 4.0</strong>. Contact: <a href="mailto:org@ungevil.no">org@ungevil.no</a></small>
-        <div class="footer-links">
-          <a href="https://www.ungevil.no/" target="_blank" rel="noopener">ungevil.no</a>
-          <a href="https://creativecommons.org/licenses/by-nd/4.0/" target="_blank" rel="noopener">Creative Commons</a>
-          <a href="/no/">Norsk</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/app.js"></script>
+  <p>Redirecting to Atlas Model… If nothing happens, choose your language:</p>
+  <p>
+    <a href="/no/" onclick="localStorage.setItem('atlas-lang','no')">Norsk</a>
+    ·
+    <a href="/en/" onclick="localStorage.setItem('atlas-lang','en')">English</a>
+  </p>
 </body>
 </html>

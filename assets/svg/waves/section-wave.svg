@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" preserveAspectRatio="none" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="sectionWaveGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#12c4ad" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#8e2de2" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#4a00e0" stop-opacity="0.4" />
+    </linearGradient>
+  </defs>
+  <path d="M0 96L60 88C120 80 240 64 360 80C480 96 600 144 720 144C840 144 960 96 1080 80C1200 64 1320 80 1380 88L1440 96V160H0Z" fill="url(#sectionWaveGradient)" />
+</svg>
