@@ -1,0 +1,15 @@
+<svg width="160" height="60" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#shadow)">
+    <rect x="18" y="13" width="28" height="28" rx="8" fill="#8E7CFF"/>
+    <rect x="46" y="13" width="28" height="28" rx="8" fill="#51DCC5"/>
+    <rect x="74" y="13" width="28" height="28" rx="8" fill="#FF8BD6"/>
+    <rect x="38" y="27" width="28" height="28" rx="8" fill="#FFA869"/>
+    <rect x="66" y="27" width="28" height="28" rx="8" fill="#3FC0FF"/>
+  </g>
+  <text x="80" y="54" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', sans-serif" font-weight="700" font-size="16" fill="#F5F6FF">Youth Mosaic</text>
+  <defs>
+    <filter id="shadow" x="12" y="7" width="116" height="52" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0B0F26" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,14 @@
+<svg width="160" height="60" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#shadow)">
+    <path d="M40 16C40 12.6863 42.6863 10 46 10H114C117.314 10 120 12.6863 120 16V44C120 47.3137 117.314 50 114 50H46C42.6863 50 40 47.3137 40 44V16Z" fill="#121C3F"/>
+    <path d="M55 30L70 18L85 30L100 18L115 30" stroke="#FFD166" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="70" cy="34" r="6" fill="#FF8BD6"/>
+    <circle cx="100" cy="34" r="6" fill="#47DFC4"/>
+  </g>
+  <text x="80" y="54" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', sans-serif" font-weight="700" font-size="16" fill="#F5F6FF">Civic Spark</text>
+  <defs>
+    <filter id="shadow" x="34" y="4" width="92" height="52" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0B0F26" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+</svg>
