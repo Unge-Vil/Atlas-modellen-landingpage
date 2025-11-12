@@ -1,0 +1,15 @@
+{
+  "name": "Atlas-modellen",
+  "short_name": "Atlas",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08090f",
+  "theme_color": "#f5855b",
+  "icons": [
+    {
+      "src": "assets/img/atlas-logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}

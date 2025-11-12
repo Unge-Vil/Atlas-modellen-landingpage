@@ -1,0 +1,14 @@
+{
+  "no": {
+    "status": {
+      "title": "Atlas er under utvikling",
+      "description": "Vi forbedrer modulene fortløpende sammen med ungdom og organisasjoner som tester dem."
+    }
+  },
+  "en": {
+    "status": {
+      "title": "Atlas is in active development",
+      "description": "We keep refining each module with young people and organisations who test them."
+    }
+  }
+}

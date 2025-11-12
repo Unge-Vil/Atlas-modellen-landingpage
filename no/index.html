@@ -4,43 +4,38 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Atlas-modellen – Et åpent rammeverk for ungdomsarbeid og samarbeid | Unge Vil</title>
-  <meta name="description" content="Atlas-modellen er et åpent rammeverk for kreativt ungdomsarbeid og samarbeid på tvers av sektorer. Bruk det fritt. Tilpass. Del tilbake.">
+  <title>Atlas-modellen – Åpent rammeverk for idé, mestring og samarbeid | Unge Vil</title>
+  <meta name="description" content="Atlas-modellen er et åpent rammeverk som hjelper ungdom og organisasjoner å skape, forstå og dele løsninger sammen.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Atlas-modellen">
+  <meta property="og:title" content="Atlas-modellen – Åpent rammeverk for idé, mestring og samarbeid">
+  <meta property="og:description" content="Et åpent rammeverk for idé, mestring og samarbeid mellom ungdom og organisasjoner.">
+  <meta property="og:url" content="https://atlasmodel.org/no/">
+  <meta property="og:image" content="https://atlasmodel.org/assets/img/atlas-logo.png">
   <link rel="alternate" hreflang="en" href="https://atlasmodel.org/en/">
   <link rel="alternate" hreflang="no" href="https://atlasmodel.org/no/">
   <link rel="canonical" href="https://atlasmodel.org/no/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/tokens.css">
-  <link rel="stylesheet" href="../styles/base.css">
-  <link rel="stylesheet" href="../styles/components.css">
-  <link rel="stylesheet" href="../styles/utilities.css">
-  <script>
-    (function() {
-      const storedTheme = localStorage.getItem('atlas-theme');
-      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-      if (storedTheme === 'light' || (!storedTheme && prefersLight)) {
-        document.documentElement.classList.add('prefers-light');
-      }
-    })();
-  </script>
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../styles/site.css">
+  <script>(function(){const s=localStorage.getItem('atlas-theme');const p=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches;if(s==='light'||(!s&&p)){document.documentElement.classList.add('prefers-light');}})();</script>
 </head>
 <body class="theme-dark" data-lang="no">
-  <script>
-    (function() {
-      if (document.documentElement.classList.contains('prefers-light')) {
-        document.body.classList.remove('theme-dark');
-        document.body.classList.add('theme-light');
-        document.documentElement.classList.remove('prefers-light');
-      }
-    })();
-  </script>
+  <script>(function(){if(document.documentElement.classList.contains('prefers-light')){document.body.classList.remove('theme-dark');document.body.classList.add('theme-light');document.documentElement.classList.remove('prefers-light');}})();</script>
   <a class="skip-link" href="#main">Hopp til hovedinnhold</a>
-  <header class="hero">
-    <div class="container">
-      <div class="topbar" role="navigation" aria-label="Toppmeny">
-        <span class="topbar__brand">Atlas-modellen</span>
+  <header class="hero" id="topp">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="topbar" role="navigation" aria-label="Hovedmeny">
+        <a class="topbar__brand" href="#topp" aria-label="Atlas-modellen forside">Atlas-modellen</a>
+        <nav class="topbar__nav" aria-label="Snarveier">
+          <a href="#hva-er">Hva er</a>
+          <a href="#moduler">Moduler</a>
+          <a href="#stemmer">Stemmer</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
         <div class="topbar__actions">
           <button class="icon-toggle" type="button" data-theme-toggle data-label-light="Bytt til lysmodus" data-label-dark="Bytt til mørk modus" aria-pressed="false" aria-label="Bytt til lysmodus">
             <span aria-hidden="true" data-theme-icon>🌙</span>
@@ -51,110 +46,109 @@
           </nav>
         </div>
       </div>
-      <div class="hero__content">
-        <div class="hero__badge">
-          <span class="badge"><span class="badge__dot"></span> Powered by Unge Vil</span>
+      <div class="hero__body">
+        <div class="hero__badge" aria-label="Atlas-modellen er åpen og gratis">
+          <span class="badge"><span class="badge__dot"></span> Åpent rammeverk</span>
         </div>
-        <h1 class="text-gradient">Atlas-modellen</h1>
-        <p class="hero__lead">Et åpent rammeverk for kreativt ungdomsarbeid og samarbeid på tvers av sektorer. Bruk det fritt. Tilpass. Del tilbake.</p>
+        <h1>Atlas-modellen gjør det enklere å skape, forstå og dele på tvers av sektorer.</h1>
+        <p class="hero__lead">Gratis. Åpent. For alle.</p>
+        <p class="hero__sub">Et åpent rammeverk for idé, mestring og samarbeid mellom ungdom og organisasjoner.</p>
+        <div class="hero__phrases" aria-live="polite" data-hero-phrases>
+          <span data-hero-phrase>For kreativitet.</span>
+        </div>
         <div class="hero__actions">
-          <a class="button button--primary" href="#modules">Se modulene</a>
-          <a class="button button--ghost" href="https://docs.atlasmodel.org" target="_blank" rel="noopener">Les modellen</a>
+          <a class="button button--primary" href="#moduler">Utforsk modulene</a>
+          <a class="button button--secondary" href="https://docs.atlasmodel.org" target="_blank" rel="noopener">Les dokumentasjonen</a>
         </div>
       </div>
-      <div class="hero__art" aria-hidden="true"></div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-icon">⌄</span>
+        <span class="hero__scroll-label">Scroll videre</span>
+      </div>
     </div>
-    <div class="hero__background" aria-hidden="true"></div>
   </header>
 
   <main id="main">
-    <section class="section section--waves reveal" id="about">
-      <div class="container grid-two">
-        <div class="flow-space">
-          <span class="section__eyebrow">Om modellen</span>
-          <h2 class="section__title">Et kompass for tverrsektorielt ungdomsarbeid</h2>
-          <p class="section__lead">Atlas-modellen samler metoder og erfaringer fra frivillighet, offentlig og privat sektor. Den er skapt for å gjøre samskaping enklere – uansett hvor i landet du er.</p>
-          <p>Modellen er delt i modulbaserte opplevelser som kan brukes alene eller i rekkefølge. Alt ligger åpent og gratis, og kan lastes ned som maler, prosessdesign og guider.</p>
-          <a class="button button--ghost" href="https://docs.atlasmodel.org" target="_blank" rel="noopener">Utforsk dokumentasjonen</a>
-        </div>
-        <div class="surface-card stack-lg" aria-label="Hva er Atlas-modellen">
-          <h3>Hva gjør modellen unik?</h3>
-          <ul class="flow-space" style="list-style: none; padding: 0; margin: 0;">
-            <li>• Bygger bro mellom sektorer med felles språk.</li>
-            <li>• Setter ungdomsmedvirkning i sentrum.</li>
-            <li>• Gir konkrete verktøy og metodikk du kan bruke i morgen.</li>
-            <li>• Deles under Creative Commons-lisens.</li>
-          </ul>
-          <p class="meta">Designet for å være fleksibel, inkluderende og enkel å tilpasse.</p>
+    <section class="section section--status" id="status" aria-labelledby="status-title">
+      <div class="container">
+        <div class="status-box" data-status-box>
+          <h2 id="status-title">Atlas er under utvikling</h2>
+          <p data-status-description>Vi bygger videre sammen med ungdom og partnere over hele landet.</p>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="modules">
-      <div class="container modules">
+    <section class="section" id="hva-er" aria-labelledby="what-title">
+      <div class="container grid-two">
+        <div class="flow">
+          <span class="section__eyebrow">Hva er Atlas?</span>
+          <h2 class="section__title" id="what-title">Et rammeverk for idé til virkning</h2>
+          <p>Atlas gjør det enklere å samle ungdom, frivillighet og offentlige aktører om samme mål. Rammeverket kobler mennesker, metoder og språk slik at nye idéer kan vokse og testes raskt.</p>
+          <p>Alt ligger åpent. Hver modul er laget for å brukes alene eller som en sammenhengende prosess. Du kan laste ned maler, oppgaver og komplette opplegg.</p>
+          <p>Fellesnevneren er aktiv medvirkning og trygg fasilitering – på deres premisser.</p>
+          <a class="button button--link" href="https://docs.atlasmodel.org" target="_blank" rel="noopener">Les mer i dokumentasjonen</a>
+        </div>
+        <aside class="surface-card stack" aria-label="Hvorfor Atlas">
+          <h3>Derfor funker det</h3>
+          <ul class="checklist">
+            <li>Skaper felles språk mellom sektorer.</li>
+            <li>Setter ungdomsblikket først.</li>
+            <li>Gir ferdige opplegg og verktøy.</li>
+            <li>Tilpasningsdyktig i små og store team.</li>
+          </ul>
+          <div class="open-box" id="apen" aria-labelledby="open-title">
+            <h4 id="open-title">Åpen for alle</h4>
+            <p>Atlas er gratis å bruke. <a href="https://docs.atlasmodel.org" target="_blank" rel="noopener">Finn ressurser i dokumentasjonen</a>.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--modules" id="moduler" aria-labelledby="modules-title">
+      <div class="container">
         <div class="section__header">
           <span class="section__eyebrow">Modulene</span>
-          <h2 class="section__title">Fire bølger – én flyt</h2>
-          <p class="section__lead">Hver modul har sitt eget fokusområde, men sammen gir de en helhetlig reise fra idé til deling.</p>
+          <h2 class="section__title" id="modules-title">Fire moduler – én flyt</h2>
+          <p class="section__lead">Velg den delen du trenger, eller sett sammen hele løpet fra idé til deling.</p>
         </div>
-        <div class="modules__grid" data-modules></div>
+        <div class="modules__grid" data-modules aria-live="polite"></div>
       </div>
     </section>
 
-    <section class="section section--waves reveal" id="partners">
-      <div class="container stack-lg">
+    <section class="section section--testimonials" id="stemmer" aria-labelledby="voices-title">
+      <div class="container">
         <div class="section__header">
-          <span class="section__eyebrow">Brukes av</span>
-          <h2 class="section__title">Samarbeidspartnere på tvers</h2>
-          <p class="section__lead">Atlas-modellen brukes allerede i prosjekter over hele landet – og tester nye samarbeidsformer internasjonalt.</p>
+          <span class="section__eyebrow">Stemmer fra feltet</span>
+          <h2 class="section__title" id="voices-title">Historier fra de som tester Atlas</h2>
+          <p class="section__lead">Når vi bygger videre, samler vi inn erfaringer fra ungdom og samarbeidspartnere.</p>
         </div>
-        <div class="logo-marquee" data-marquee aria-label="Logoer for samarbeidspartnere"></div>
+        <div class="testimonial-grid" data-testimonials aria-live="polite"></div>
       </div>
     </section>
 
-    <section class="section reveal" id="team">
-      <div class="container team-spotlight">
-        <div class="team-spotlight__visual">
-          <img src="../assets/img/jan-helge.jpg" alt="Portrett av Jan Helge Naley" loading="lazy" decoding="async" data-team-image>
-        </div>
-        <div class="team-spotlight__copy">
-          <span class="section__eyebrow">Møt menneskene bak</span>
-          <h2 class="section__title" data-team-name>Jan Helge Naley</h2>
-          <p class="meta" data-team-role>Koordinator, Unge Vil</p>
-          <blockquote data-team-quote>«Atlas-modellen ble til fordi vi trengte en felles metode for å samle unge og partnere rundt konkrete utfordringer.»</blockquote>
-          <div class="team-spotlight__footer">Foto: Growing Youth Work</div>
-          <button class="button button--ghost" type="button">Se flere bidragsytere</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--waves reveal" id="testimonials">
-      <div class="container stack-lg">
+    <section class="section section--cta" id="kontakt" aria-labelledby="cta-title">
+      <div class="container">
         <div class="section__header">
-          <span class="section__eyebrow">Hva sier folk?</span>
-          <h2 class="section__title">Stemmer fra feltet</h2>
-          <p class="section__lead">Når pilotprosjektene vokser, samler vi historier fra de som tar modellen i bruk.</p>
+          <span class="section__eyebrow">Klar for å bidra?</span>
+          <h2 class="section__title" id="cta-title">Ta neste steg med Atlas</h2>
+          <p class="section__lead">Finn modulene som passer, dykk inn i dokumentasjonen eller kontakt oss for et samarbeid.</p>
         </div>
-        <div class="testimonial-grid" data-testimonials></div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="support">
-      <div class="container stack-lg">
-        <div class="section__header">
-          <span class="section__eyebrow">Støtte</span>
-          <h2 class="section__title">Takk til alle som heier</h2>
-          <p class="section__lead">Partnerne våre gir plass til eksperimentering og lar ungdom lede arbeidet framover.</p>
+        <div class="cta-buttons">
+          <a class="button button--primary" href="https://docs.atlasmodel.org" target="_blank" rel="noopener">Gå til dokumentasjonen</a>
+          <a class="button button--secondary" href="../data/modules.json" target="_blank" rel="noopener">Last ned ressursene</a>
+          <a class="button button--ghost" href="mailto:org@ungevil.no">Kontakt oss</a>
         </div>
-        <div class="support-grid" data-support-grid aria-label="Logoer for støttespillere"></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <div class="badge"><span class="badge__dot"></span> Atlas-modellen</div>
-      <p class="site-footer__meta">Lisens: CC BY-ND 4.0 · Kontakt: <a href="mailto:org@ungevil.no">org@ungevil.no</a></p>
+      <div class="site-footer__brand">
+        <img src="../assets/img/atlas-logo.png" alt="Atlas-modellen logo" loading="lazy" decoding="async">
+        <span>Atlas-modellen er åpen. Bruk.</span>
+      </div>
+      <p class="site-footer__meta">Lisens: CC BY-ND 4.0 · <a href="mailto:org@ungevil.no">org@ungevil.no</a></p>
       <div class="site-footer__links">
         <a href="https://creativecommons.org/licenses/by-nd/4.0/deed.no" target="_blank" rel="noopener">Creative Commons</a>
         <a href="https://github.com/AtlasModel/Atlas-modellen-landingpage" target="_blank" rel="noopener">GitHub</a>
@@ -163,8 +157,6 @@
     </div>
   </footer>
 
-  <script src="../scripts/theme.js" defer></script>
-  <script src="../scripts/i18n.js" defer></script>
-  <script src="../scripts/ui.js" defer></script>
+  <script src="../scripts/site.js" defer></script>
 </body>
 </html>
