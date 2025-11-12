@@ -1,0 +1,30 @@
+[
+  {
+    "id": "idealab",
+    "title": "Idélab",
+    "desc": "Kreativ idéutvikling og eksperimentering.",
+    "class": "mod-idealab",
+    "icon": "bulb"
+  },
+  {
+    "id": "blanke-ark",
+    "title": "Blanke ark",
+    "desc": "Rett fram og ny start.",
+    "class": "mod-blankeark",
+    "icon": "book"
+  },
+  {
+    "id": "forstaelse",
+    "title": "Forståelsesmodul",
+    "desc": "Felles forståelse og språk mellom aktører.",
+    "class": "mod-forstaelse",
+    "icon": "puzzle"
+  },
+  {
+    "id": "gi-det-videre",
+    "title": "Gi det videre",
+    "desc": "Metoder for deling og skalering.",
+    "class": "mod-gi-det-videre",
+    "icon": "share"
+  }
+]

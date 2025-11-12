@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Nordic Hub",
+    "logo": "assets/img/logo-nordic-hub.svg",
+    "url": "https://nordichub.example.com"
+  },
+  {
+    "name": "Youth Mosaic",
+    "logo": "assets/img/logo-youth-mosaic.svg",
+    "url": "https://youthmosaic.example.com"
+  },
+  {
+    "name": "Civic Spark Labs",
+    "logo": "assets/img/logo-civic-spark.svg",
+    "url": "https://civicsparklabs.example.com"
+  }
+]

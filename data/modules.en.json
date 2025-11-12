@@ -1,0 +1,30 @@
+[
+  {
+    "id": "idealab",
+    "title": "Idea Lab",
+    "desc": "Creative ideation and experimentation.",
+    "class": "mod-idealab",
+    "icon": "bulb"
+  },
+  {
+    "id": "blanke-ark",
+    "title": "Blank Canvas",
+    "desc": "Reframing challenges and making a fresh start.",
+    "class": "mod-blankeark",
+    "icon": "book"
+  },
+  {
+    "id": "forstaelse",
+    "title": "Understanding module",
+    "desc": "Building shared language across partners.",
+    "class": "mod-forstaelse",
+    "icon": "puzzle"
+  },
+  {
+    "id": "gi-det-videre",
+    "title": "Pass It On",
+    "desc": "Methods for sharing and scaling.",
+    "class": "mod-gi-det-videre",
+    "icon": "share"
+  }
+]
