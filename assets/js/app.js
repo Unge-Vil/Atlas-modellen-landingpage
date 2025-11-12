@@ -60,10 +60,30 @@ async function loadData(){
 
   const supWrap = document.querySelector('#support .logo-grid');
   supWrap.innerHTML = '';
-  sups.supporters.forEach(n=>{
-    const d = document.createElement('div');
-    d.className='logo-card'; d.textContent = n;
-    supWrap.appendChild(d);
+  sups.supporters.forEach(item=>{
+    const el = document.createElement(item.url ? 'a' : 'div');
+    el.className = 'logo-card';
+    if(item.url){
+      el.href = item.url;
+      el.target = '_blank';
+      el.rel = 'noopener';
+      el.setAttribute('aria-label', item.name);
+    }
+
+    if(item.logo){
+      const img = document.createElement('img');
+      img.src = item.logo;
+      img.alt = item.name;
+      img.width = item.width || 200;
+      img.height = item.height || 80;
+      img.loading = 'lazy';
+      el.appendChild(img);
+    }else{
+      const span = document.createElement('span');
+      span.textContent = item.name;
+      el.appendChild(span);
+    }
+    supWrap.appendChild(el);
   });
 }
 loadData();

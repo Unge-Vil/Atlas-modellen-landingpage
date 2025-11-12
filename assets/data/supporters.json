@@ -1,7 +1,16 @@
 {
   "supporters": [
-    "Eksempel",
-    "Eksempel",
-    "Eksempel"
+    {
+      "name": "GitBook",
+      "logo": "assets/img/GitBookLogoLight.svg",
+      "url": "https://www.gitbook.com/"
+    },
+    {
+      "name": "Unge Vil",
+      "url": "https://www.ungevil.no/"
+    },
+    {
+      "name": "Frivillige støttespillere"
+    }
   ]
 }
