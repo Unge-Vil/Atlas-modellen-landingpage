@@ -1,0 +1,17 @@
+<svg width="160" height="60" viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#shadow)">
+    <circle cx="26" cy="30" r="10" fill="#47DFC4"/>
+    <circle cx="80" cy="18" r="9" fill="#A977FF"/>
+    <circle cx="134" cy="30" r="10" fill="#FF8BD6"/>
+    <path d="M36 30L71 19" stroke="#E4E9FF" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M89 19L124 30" stroke="#E4E9FF" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M36 30L71 41" stroke="#5FE7CE" stroke-width="2" stroke-linecap="round"/>
+    <path d="M89 41L124 30" stroke="#DDB0FF" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="54" text-anchor="middle" font-family="'Montserrat', 'Segoe UI', sans-serif" font-weight="700" font-size="16" fill="#F5F6FF">Nordic Hub</text>
+  <defs>
+    <filter id="shadow" x="12" y="4" width="136" height="52" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0B0F26" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+</svg>
