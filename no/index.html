@@ -41,26 +41,64 @@
       <div class="container">
         <h2 class="section-title">Modulene</h2>
         <p class="section-lead">Bygg stein‑på‑stein eller bruk modulene hver for seg. Alt er gratis å bruke og tilpasse.</p>
-        <div class="module-grid">
-          <div class="module-card" data-variant="idelab">
-            <img src="../assets/img/module-idelab.png" alt="Idélab" width="1000" height="1000" loading="lazy" decoding="async">
-            <h3 class="module-title">Idélab</h3>
-            <p class="module-desc">Kreativ idéutvikling + eksperimentering.</p>
+        <div class="module-experience">
+          <ol class="module-steps" aria-label="Atlas-modellen steg">
+            <li class="module-step">
+              <button type="button" class="module-step-btn is-active" data-target="module-idelab" aria-controls="module-idelab" aria-current="step" aria-label="Steg 1: Idélab">
+                <span class="module-step__number">1</span>
+                <span class="module-step__label">Idélab</span>
+              </button>
+            </li>
+            <li class="module-step">
+              <button type="button" class="module-step-btn" data-target="module-blanke-ark" aria-controls="module-blanke-ark" aria-label="Steg 2: Blanke ark">
+                <span class="module-step__number">2</span>
+                <span class="module-step__label">Blanke ark</span>
+              </button>
+            </li>
+            <li class="module-step">
+              <button type="button" class="module-step-btn" data-target="module-forstaelse" aria-controls="module-forstaelse" aria-label="Steg 3: Forståelsesmodul">
+                <span class="module-step__number">3</span>
+                <span class="module-step__label">Forståelsesmodul</span>
+              </button>
+            </li>
+            <li class="module-step">
+              <button type="button" class="module-step-btn" data-target="module-gi-det-videre" aria-controls="module-gi-det-videre" aria-label="Steg 4: Gi det videre">
+                <span class="module-step__number">4</span>
+                <span class="module-step__label">Gi det videre</span>
+              </button>
+            </li>
+          </ol>
+          <div class="module-progress" aria-hidden="true">
+            <span class="module-progress__track"></span>
+            <span class="module-progress__bar"></span>
           </div>
-          <div class="module-card" data-variant="blanke-ark">
-            <img src="../assets/img/module-blanke-ark.png" alt="Blanke ark" width="1000" height="1000" loading="lazy" decoding="async">
-            <h3 class="module-title">Blanke ark</h3>
-            <p class="module-desc">Reframing og ny start.</p>
-          </div>
-          <div class="module-card" data-variant="forstaelse">
-            <img src="../assets/img/module-forstaelse.png" alt="Forståelsesmodul" width="1000" height="1000" loading="lazy" decoding="async">
-            <h3 class="module-title">Forståelsesmodul</h3>
-            <p class="module-desc">Felles forståelse og språk mellom aktører.</p>
-          </div>
-          <div class="module-card" data-variant="gi-det-videre">
-            <img src="../assets/img/module-gi-det-videre.png" alt="Gi det videre" width="1000" height="1000" loading="lazy" decoding="async">
-            <h3 class="module-title">Gi det videre</h3>
-            <p class="module-desc">Mentorering, rekruttering og kulturbygging.</p>
+          <div class="module-carousel" role="region" aria-label="Modulkarusell" aria-roledescription="carousel" aria-live="polite" tabindex="0">
+            <div class="module-grid" role="list">
+              <article class="module-card" id="module-idelab" data-variant="idelab" data-step="1" role="listitem" aria-labelledby="module-idelab-title" aria-describedby="module-idelab-desc" tabindex="-1">
+                <span class="module-step-chip" aria-hidden="true">Steg 01</span>
+                <img src="../assets/img/module-idelab.png" alt="Idélab" width="1000" height="1000" loading="lazy" decoding="async">
+                <h3 class="module-title" id="module-idelab-title">Idélab</h3>
+                <p class="module-desc" id="module-idelab-desc">Kreativ idéutvikling + eksperimentering.</p>
+              </article>
+              <article class="module-card" id="module-blanke-ark" data-variant="blanke-ark" data-step="2" role="listitem" aria-labelledby="module-blanke-ark-title" aria-describedby="module-blanke-ark-desc" tabindex="-1">
+                <span class="module-step-chip" aria-hidden="true">Steg 02</span>
+                <img src="../assets/img/module-blanke-ark.png" alt="Blanke ark" width="1000" height="1000" loading="lazy" decoding="async">
+                <h3 class="module-title" id="module-blanke-ark-title">Blanke ark</h3>
+                <p class="module-desc" id="module-blanke-ark-desc">Reframing og ny start.</p>
+              </article>
+              <article class="module-card" id="module-forstaelse" data-variant="forstaelse" data-step="3" role="listitem" aria-labelledby="module-forstaelse-title" aria-describedby="module-forstaelse-desc" tabindex="-1">
+                <span class="module-step-chip" aria-hidden="true">Steg 03</span>
+                <img src="../assets/img/module-forstaelse.png" alt="Forståelsesmodul" width="1000" height="1000" loading="lazy" decoding="async">
+                <h3 class="module-title" id="module-forstaelse-title">Forståelsesmodul</h3>
+                <p class="module-desc" id="module-forstaelse-desc">Felles forståelse og språk mellom aktører.</p>
+              </article>
+              <article class="module-card" id="module-gi-det-videre" data-variant="gi-det-videre" data-step="4" role="listitem" aria-labelledby="module-gi-det-videre-title" aria-describedby="module-gi-det-videre-desc" tabindex="-1">
+                <span class="module-step-chip" aria-hidden="true">Steg 04</span>
+                <img src="../assets/img/module-gi-det-videre.png" alt="Gi det videre" width="1000" height="1000" loading="lazy" decoding="async">
+                <h3 class="module-title" id="module-gi-det-videre-title">Gi det videre</h3>
+                <p class="module-desc" id="module-gi-det-videre-desc">Mentorering, rekruttering og kulturbygging.</p>
+              </article>
+            </div>
           </div>
         </div>
       </div>

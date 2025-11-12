@@ -88,6 +88,138 @@ async function loadData(){
 }
 loadData();
 
+// Module carousel enhancements
+const moduleCarousel = document.querySelector('.module-carousel');
+if(moduleCarousel){
+  const moduleCards = Array.from(moduleCarousel.querySelectorAll('.module-card'));
+  const moduleButtons = Array.from(document.querySelectorAll('.module-step-btn'));
+  const progressBar = document.querySelector('.module-progress__bar');
+  let activeIndex = 0;
+
+  const clampIndex = (value)=>{
+    if(!moduleCards.length) return 0;
+    return Math.max(0, Math.min(moduleCards.length - 1, value));
+  };
+
+  const setActiveIndex = (nextIndex, {force = false} = {})=>{
+    nextIndex = clampIndex(nextIndex);
+    if(!force && nextIndex === activeIndex) return;
+    activeIndex = nextIndex;
+
+    moduleCards.forEach((card, idx)=>{
+      const isActive = idx === nextIndex;
+      card.classList.toggle('is-active', isActive);
+      card.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
+
+    moduleButtons.forEach((btn, idx)=>{
+      const isActive = idx === nextIndex;
+      btn.classList.toggle('is-active', isActive);
+      if(isActive){
+        btn.setAttribute('aria-current', 'step');
+      }else{
+        btn.removeAttribute('aria-current');
+      }
+    });
+
+    if(progressBar){
+      const ratio = moduleCards.length > 1 ? nextIndex / (moduleCards.length - 1) : 1;
+      const clampedRatio = Math.max(0, Math.min(1, ratio));
+      progressBar.style.setProperty('--progress', `${clampedRatio}`);
+    }
+
+    if(moduleCards[nextIndex]){
+      moduleCarousel.setAttribute('aria-activedescendant', moduleCards[nextIndex].id);
+    }
+  };
+
+  if(moduleCards.length){
+    setActiveIndex(0, {force:true});
+  }
+
+  const scrollToIndex = (index, { focusCard = false } = {})=>{
+    const targetIndex = clampIndex(index);
+    const target = moduleCards[targetIndex];
+    if(!target) return;
+    setActiveIndex(targetIndex);
+    target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if(focusCard && typeof target.focus === 'function'){
+      try{
+        target.focus({ preventScroll: true });
+      }catch(_err){
+        target.focus();
+      }
+    }
+    updateEdgeState();
+  };
+
+  const intersectionObserver = new IntersectionObserver((entries)=>{
+    const visible = entries
+      .filter(entry=>entry.isIntersecting)
+      .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
+    if(visible){
+      const index = moduleCards.indexOf(visible.target);
+      if(index !== -1){
+        setActiveIndex(index);
+      }
+    }
+  }, { root: moduleCarousel, threshold: 0.55 });
+
+  moduleCards.forEach(card=>intersectionObserver.observe(card));
+
+  moduleButtons.forEach((btn, idx)=>{
+    btn.addEventListener('click', ()=> scrollToIndex(idx));
+  });
+
+  moduleCarousel.addEventListener('keydown', (event)=>{
+    if(event.key === 'ArrowRight' || event.key === 'ArrowLeft'){
+      event.preventDefault();
+      const direction = event.key === 'ArrowRight' ? 1 : -1;
+      const nextIndex = clampIndex(activeIndex + direction);
+      if(nextIndex !== activeIndex){
+        scrollToIndex(nextIndex);
+      }
+    }else if(event.key === 'Enter' || event.key === ' '){
+      event.preventDefault();
+      scrollToIndex(activeIndex, { focusCard: true });
+    }
+  });
+
+  const updateEdgeState = ()=>{
+    const atStart = moduleCarousel.scrollLeft <= 6;
+    const atEnd = moduleCarousel.scrollLeft + moduleCarousel.clientWidth >= moduleCarousel.scrollWidth - 6;
+    moduleCarousel.classList.toggle('is-start', atStart);
+    moduleCarousel.classList.toggle('is-end', atEnd);
+  };
+
+  let scrollRaf;
+  const handleScroll = ()=>{
+    if(scrollRaf) cancelAnimationFrame(scrollRaf);
+    scrollRaf = requestAnimationFrame(()=>{
+      updateEdgeState();
+    });
+  };
+
+  moduleCarousel.addEventListener('scroll', handleScroll, { passive:true });
+
+  let resizeRaf;
+  window.addEventListener('resize', ()=>{
+    if(resizeRaf) cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(()=>{
+      updateEdgeState();
+    });
+  });
+
+  if('ResizeObserver' in window){
+    const resizeObserver = new ResizeObserver(()=> updateEdgeState());
+    resizeObserver.observe(moduleCarousel);
+  }
+
+  window.addEventListener('load', updateEdgeState, { once: true });
+
+  updateEdgeState();
+}
+
 // Parallax tilt in hero title
 const hero = document.querySelector('.hero');
 hero.addEventListener('mousemove', (e)=>{
