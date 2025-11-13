@@ -893,14 +893,19 @@ img {
 
 .section.quote-section {
   position: relative;
-  padding: clamp(5rem, 7vw, 7.5rem) 0;
-  background: linear-gradient(180deg, rgba(245, 133, 91, 0.88) 0%, rgba(255, 210, 125, 0.85) 55%, #ffffff 100%);
-  color: #0b332f;
+  padding: clamp(4rem, 6vw, 6rem) 0;
+  background: radial-gradient(circle at 18% 15%, rgba(245, 133, 91, 0.32), transparent 60%),
+    radial-gradient(circle at 78% 10%, rgba(120, 153, 255, 0.28), transparent 62%),
+    linear-gradient(180deg, rgba(19, 20, 36, 0.96) 0%, rgba(14, 15, 26, 0.94) 55%, rgba(8, 9, 15, 0.97) 100%);
+  color: rgba(233, 238, 255, 0.88);
   overflow: hidden;
 }
 
 .theme-light .section.quote-section {
-  background: linear-gradient(180deg, rgba(245, 133, 91, 0.82) 0%, rgba(255, 215, 145, 0.82) 55%, #ffffff 100%);
+  background: radial-gradient(circle at 18% 15%, rgba(245, 161, 120, 0.32), transparent 60%),
+    radial-gradient(circle at 78% 10%, rgba(156, 170, 255, 0.28), transparent 62%),
+    linear-gradient(180deg, rgba(244, 246, 252, 0.95) 0%, rgba(232, 235, 249, 0.92) 55%, rgba(226, 230, 247, 0.95) 100%);
+  color: rgba(19, 24, 48, 0.82);
 }
 
 .quote-section__inner {
@@ -908,9 +913,9 @@ img {
   z-index: 1;
   width: min(100%, 1100px);
   margin: 0 auto;
-  padding: clamp(2rem, 4vw, 3.25rem) clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 3.5vw, 3rem) clamp(1.5rem, 4vw, 3rem);
   display: grid;
-  gap: clamp(2.5rem, 5vw, 4rem);
+  gap: clamp(2rem, 4vw, 3.25rem);
   align-items: center;
 }
 
@@ -929,20 +934,14 @@ img {
   display: block;
 }
 
-.quote-section__wave--top {
-  top: 0;
-  transform: translateY(-60%);
-  color: var(--color-bg);
-}
-
-.theme-light .quote-section__wave--top {
-  color: #f8f9fb;
-}
-
 .quote-section__wave--bottom {
   bottom: 0;
   transform: translateY(60%);
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(102, 112, 204, 0.4);
+}
+
+.theme-light .quote-section__wave--bottom {
+  color: rgba(156, 170, 255, 0.4);
 }
 
 .quote-section__media {
@@ -959,6 +958,7 @@ img {
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(10, 52, 46, 0.25);
   transition: box-shadow 0.6s ease;
+  aspect-ratio: 3 / 4;
 }
 
 .quote-section__image img {
@@ -982,8 +982,12 @@ img {
 
 .quote-section__credit {
   font-size: 0.85rem;
-  color: rgba(11, 51, 47, 0.7);
+  color: rgba(233, 238, 255, 0.72);
   text-align: center;
+}
+
+.theme-light .quote-section__credit {
+  color: rgba(34, 44, 84, 0.7);
 }
 
 .quote-section__credit a {
@@ -1062,8 +1066,8 @@ img {
   margin: 0;
   display: grid;
   gap: 1.25rem;
-  font-size: clamp(1.25rem, 2.8vw, 1.9rem);
-  line-height: 1.6;
+  font-size: clamp(1.15rem, 2.4vw, 1.65rem);
+  line-height: 1.55;
   color: #082420;
 }
 
