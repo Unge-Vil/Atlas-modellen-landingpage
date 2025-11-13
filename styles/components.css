@@ -266,6 +266,17 @@
   max-width: 420px;
 }
 
+.team-spotlight__visual figcaption {
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.team-spotlight__visual figcaption a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .team-spotlight__visual img {
   width: 100%;
   border-radius: clamp(2.5rem, 8vw, 4.5rem);
