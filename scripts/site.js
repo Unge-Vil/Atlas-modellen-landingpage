@@ -162,7 +162,12 @@
       cta.href = module.link || 'https://docs.atlasmodel.org';
       cta.target = '_blank';
       cta.rel = 'noopener';
-      cta.textContent = module.cta || t.moduleCta;
+      var ctaLabel = module.cta || t.moduleCta;
+      cta.setAttribute('aria-label', ctaLabel + ' – ' + module.title);
+      var srText = doc.createElement('span');
+      srText.className = 'visually-hidden';
+      srText.textContent = ctaLabel;
+      cta.appendChild(srText);
       card.appendChild(cta);
 
       container.appendChild(card);
