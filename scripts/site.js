@@ -118,6 +118,142 @@
     });
   }
 
+  function initMobileMenu() {
+    var toggle = doc.querySelector('[data-mobile-menu-toggle]');
+    var menu = doc.querySelector('[data-mobile-menu]');
+    if (!toggle || !menu) return;
+
+    var focusableSelectors = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    var isOpen = false;
+    var previousFocus = null;
+    var labelOpen = toggle.getAttribute('data-label-open') || toggle.getAttribute('aria-label') || '';
+    var labelClose = toggle.getAttribute('data-label-close') || labelOpen;
+    var desktopMedia = window.matchMedia ? window.matchMedia('(min-width: 769px)') : null;
+
+    function updateLabel(open) {
+      toggle.setAttribute('aria-label', open ? labelClose : labelOpen);
+    }
+
+    function isMobileViewport() {
+      if (desktopMedia) {
+        return !desktopMedia.matches;
+      }
+      return window.innerWidth < 769;
+    }
+
+    function setMenuAriaHidden(hidden) {
+      menu.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+    }
+
+    function getFocusableItems() {
+      return menu.querySelectorAll(focusableSelectors);
+    }
+
+    function handleKeydown(event) {
+      if (!isOpen) return;
+      if (event.key === 'Escape' || event.key === 'Esc') {
+        event.preventDefault();
+        closeMenu();
+        return;
+      }
+
+      if (event.key === 'Tab') {
+        var focusable = getFocusableItems();
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        var active = doc.activeElement;
+
+        if (event.shiftKey) {
+          if (active === first || !menu.contains(active)) {
+            event.preventDefault();
+            last.focus();
+          }
+        } else if (active === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    function openMenu() {
+      if (isOpen) return;
+      isOpen = true;
+      previousFocus = doc.activeElement;
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.classList.add('is-active');
+      body.classList.add('has-mobile-menu');
+      menu.classList.add('is-open');
+      setMenuAriaHidden(false);
+      updateLabel(true);
+      doc.addEventListener('keydown', handleKeydown);
+
+      var focusable = getFocusableItems();
+      if (focusable.length) {
+        focusable[0].focus();
+      }
+    }
+
+    function closeMenu(options) {
+      if (!isOpen) return;
+      isOpen = false;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.classList.remove('is-active');
+      body.classList.remove('has-mobile-menu');
+      menu.classList.remove('is-open');
+      setMenuAriaHidden(isMobileViewport());
+      updateLabel(false);
+      doc.removeEventListener('keydown', handleKeydown);
+
+      var skipFocus = options && options.skipFocus;
+      if (!skipFocus) {
+        if (previousFocus && typeof previousFocus.focus === 'function') {
+          previousFocus.focus();
+        } else {
+          toggle.focus();
+        }
+      }
+      previousFocus = null;
+    }
+
+    toggle.addEventListener('click', function () {
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    menu.addEventListener('click', function (event) {
+      var target = event.target.closest('[data-menu-close]');
+      if (target) {
+        closeMenu({ skipFocus: true });
+      }
+    });
+
+    if (desktopMedia) {
+      var handleMediaChange = function (event) {
+        if (event.matches) {
+          closeMenu({ skipFocus: true });
+          setMenuAriaHidden(false);
+        } else if (!isOpen) {
+          setMenuAriaHidden(true);
+        }
+      };
+
+      if (desktopMedia.addEventListener) {
+        desktopMedia.addEventListener('change', handleMediaChange);
+      } else if (desktopMedia.addListener) {
+        desktopMedia.addListener(handleMediaChange);
+      }
+
+      handleMediaChange(desktopMedia);
+    }
+
+    updateLabel(false);
+    setMenuAriaHidden(isMobileViewport());
+  }
+
   function renderModules(modules) {
     var container = doc.querySelector('[data-modules]');
     if (!container || !Array.isArray(modules)) return;
@@ -288,6 +424,7 @@
   }
 
   function start() {
+    initMobileMenu();
     initThemeToggle();
     initLanguageSwitch();
 

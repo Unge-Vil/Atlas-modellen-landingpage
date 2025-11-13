@@ -30,20 +30,26 @@
     <div class="container hero__inner">
       <div class="topbar" role="navigation" aria-label="Primary navigation">
         <a class="topbar__brand" href="#top" aria-label="Atlas Model home">Atlas Model</a>
-        <nav class="topbar__nav" aria-label="Quick links">
-          <a href="#what">What</a>
-          <a href="#modules">Modules</a>
-          <a href="#voices">Voices</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="topbar__actions">
-          <button class="icon-toggle" type="button" data-theme-toggle data-label-light="Switch to light mode" data-label-dark="Switch to dark mode" aria-pressed="false" aria-label="Switch to light mode">
-            <span aria-hidden="true" data-theme-icon>🌙</span>
-          </button>
-          <nav class="lang-switch" aria-label="Select language">
-            <a href="/no/" data-lang-switch="no">NO</a>
-            <a href="/en/" data-lang-switch="en" aria-current="true">EN</a>
+        <button class="topbar__menu-toggle" type="button" data-mobile-menu-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
+          <span class="topbar__menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="topbar__menu-toggle-label">Menu</span>
+        </button>
+        <div class="topbar__menu" id="primary-navigation" data-mobile-menu>
+          <nav class="topbar__nav" aria-label="Quick links">
+            <a href="#what" data-menu-close>What</a>
+            <a href="#modules" data-menu-close>Modules</a>
+            <a href="#voices" data-menu-close>Voices</a>
+            <a href="#contact" data-menu-close>Contact</a>
           </nav>
+          <div class="topbar__actions">
+            <button class="icon-toggle" type="button" data-theme-toggle data-label-light="Switch to light mode" data-label-dark="Switch to dark mode" aria-pressed="false" aria-label="Switch to light mode">
+              <span aria-hidden="true" data-theme-icon>🌙</span>
+            </button>
+            <nav class="lang-switch" aria-label="Select language">
+              <a href="/no/" data-lang-switch="no" data-menu-close>NO</a>
+              <a href="/en/" data-lang-switch="en" aria-current="true" data-menu-close>EN</a>
+            </nav>
+          </div>
         </div>
       </div>
       <div class="hero__body">
