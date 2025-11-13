@@ -423,10 +423,94 @@
     }, 3200);
   }
 
+  function initScrollReveal() {
+    var revealItems = Array.prototype.slice.call(doc.querySelectorAll('[data-reveal]'));
+    if (!revealItems.length) return;
+
+    if (prefersReducedMotion || typeof IntersectionObserver !== 'function') {
+      revealItems.forEach(function (item) {
+        item.classList.add('is-visible');
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.25,
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    revealItems.forEach(function (item) {
+      observer.observe(item);
+    });
+  }
+
+  function initQuoteParallax() {
+    if (prefersReducedMotion) return;
+    var section = doc.querySelector('[data-quote-section]');
+    if (!section) return;
+
+    var marks = Array.prototype.slice.call(section.querySelectorAll('[data-quote-mark]'));
+    if (!marks.length) return;
+
+    var ticking = false;
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function update() {
+      ticking = false;
+      if (!doc.body.contains(section)) return;
+
+      var rect = section.getBoundingClientRect();
+      var viewportHeight = window.innerHeight || root.clientHeight || 0;
+      if (!viewportHeight || !rect) return;
+
+      var progress = null;
+      if (rect.bottom >= 0 && rect.top <= viewportHeight) {
+        var total = rect.height + viewportHeight;
+        if (total > 0) {
+          progress = clamp((viewportHeight - rect.top) / total, 0, 1);
+        }
+      }
+
+      marks.forEach(function (mark, index) {
+        var direction = index % 2 === 0 ? 1 : -1;
+        var amplitude = 2;
+        var offset = 0;
+        if (progress !== null) {
+          offset = (progress - 0.5) * amplitude * direction;
+        }
+        mark.style.transform = 'translateY(' + offset.toFixed(2) + 'px)';
+      });
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    }
+
+    update();
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+    window.addEventListener('resize', requestTick);
+  }
+
   function start() {
     initMobileMenu();
     initThemeToggle();
     initLanguageSwitch();
+    initScrollReveal();
+    initQuoteParallax();
 
     var dataRequests = [
       fetchJSON(basePath + '/data/modules.json'),
