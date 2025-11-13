@@ -258,18 +258,42 @@
 .team-spotlight {
   display: grid;
   gap: clamp(2rem, 6vw, 4rem);
-  align-items: center;
+  align-items: stretch;
+  grid-template-columns: minmax(0, clamp(180px, 32vw, 360px)) minmax(0, 1fr);
+  grid-template-areas: "visual copy";
 }
 
 .team-spotlight__visual {
   position: relative;
-  max-width: 420px;
+  width: 100%;
+  max-width: clamp(180px, 32vw, 360px);
+  grid-area: visual;
+}
+
+.team-spotlight__visual::before {
+  content: "";
+  position: absolute;
+  inset: clamp(0.75rem, 2vw, 1.5rem);
+  border-radius: clamp(2rem, 7vw, 4rem);
+  background: linear-gradient(140deg, rgba(245, 133, 91, 0.35), rgba(74, 0, 224, 0.25));
+  z-index: -2;
 }
 
 .team-spotlight__visual figcaption {
-  margin-top: var(--space-sm);
+  position: absolute;
+  bottom: clamp(0.75rem, 3vw, 1.75rem);
+  right: clamp(0.75rem, 3vw, 1.75rem);
+  top: auto;
+  left: auto;
+  margin: 0;
+  padding: var(--space-2xs) var(--space-sm);
   font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
+  color: var(--color-text-strong);
+  background: rgba(8, 9, 15, 0.65);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(12px);
+  z-index: 2;
 }
 
 .team-spotlight__visual figcaption a {
@@ -277,8 +301,22 @@
   text-decoration: underline;
 }
 
+body.theme-light .team-spotlight__visual figcaption,
+body:not(.theme-dark)[data-theme="light"] .team-spotlight__visual figcaption {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-strong);
+}
+
+body.theme-light .team-spotlight blockquote,
+body:not(.theme-dark)[data-theme="light"] .team-spotlight blockquote {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(18, 196, 173, 0.24));
+  box-shadow: 0 26px 48px rgba(15, 23, 42, 0.14);
+}
+
 .team-spotlight__visual img {
   width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   border-radius: clamp(2.5rem, 8vw, 4.5rem);
   mask-image: url("../assets/svg/waves/portrait-mask.svg");
   mask-size: cover;
@@ -292,26 +330,60 @@
   position: absolute;
   inset: 12%;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
-  filter: blur(40px);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 72%);
+  filter: blur(46px);
   z-index: -1;
 }
 
 .team-spotlight__copy {
   display: grid;
   gap: var(--space-md);
+  grid-area: copy;
+  max-width: 720px;
+  justify-self: stretch;
+  align-self: stretch;
+  grid-template-rows: minmax(0, 1fr) auto;
 }
 
 .team-spotlight blockquote {
+  position: relative;
+  z-index: 0;
   margin: 0;
-  font-size: var(--font-size-lg);
+  padding: clamp(2rem, 4vw, 3rem);
+  padding-left: clamp(3rem, 5vw, 4.25rem);
+  font-size: clamp(1.25rem, 1.05rem + 1.1vw, 2rem);
+  line-height: 1.6;
   color: var(--color-text);
   font-weight: var(--font-weight-medium);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(18, 196, 173, 0.18));
+  border-radius: clamp(1.75rem, 3vw, 2.75rem);
+  box-shadow: 0 35px 70px rgba(12, 17, 32, 0.3);
+  overflow: hidden;
+  isolation: isolate;
+  display: grid;
+  align-content: center;
+  gap: var(--space-sm);
+}
+
+.team-spotlight blockquote::before {
+  content: "“";
+  position: absolute;
+  inset: clamp(-1.5rem, -4vw, -1rem) auto auto clamp(1.25rem, 4vw, 2rem);
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  line-height: 1;
+  color: rgba(245, 133, 91, 0.5);
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-weight: 600;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .team-spotlight__footer {
   font-size: 0.95rem;
   color: var(--color-text-muted);
+  text-align: right;
+  align-self: end;
 }
 
 .testimonial-grid {
@@ -497,16 +569,23 @@
 
   .team-spotlight {
     grid-template-columns: 1fr;
+    grid-template-areas: "copy" "visual";
     justify-items: center;
-    text-align: center;
+    text-align: left;
   }
 
   .team-spotlight__copy {
-    justify-items: center;
+    justify-items: stretch;
+    text-align: left;
+    grid-template-rows: auto auto;
   }
 
   .team-spotlight__visual::after {
     inset: 20%;
+  }
+
+  .team-spotlight__footer {
+    text-align: left;
   }
 }
 
