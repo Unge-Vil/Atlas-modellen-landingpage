@@ -7,7 +7,7 @@
   "theme_color": "#f5855b",
   "icons": [
     {
-      "src": "assets/img/atlas-logo.png",
+      "src": "https://atlasmodel.org/assets/img/atlas-logo.png",
       "sizes": "192x192 512x512",
       "type": "image/png"
     }

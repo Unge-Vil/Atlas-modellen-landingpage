@@ -36,9 +36,9 @@ document.querySelector('.theme-toggle').addEventListener('click',()=>{
 // Load JSON data for orgs, testimonials, supporters
 async function loadData(){
   const [orgs, tests, sups] = await Promise.all([
-    fetch('assets/data/orgs.json').then(r=>r.json()),
-    fetch('assets/data/testimonials.json').then(r=>r.json()),
-    fetch('assets/data/supporters.json').then(r=>r.json()),
+    fetch('https://atlasmodel.org/assets/data/orgs.json').then(r=>r.json()),
+    fetch('https://atlasmodel.org/assets/data/testimonials.json').then(r=>r.json()),
+    fetch('https://atlasmodel.org/assets/data/supporters.json').then(r=>r.json()),
   ]);
 
   const orgWrap = document.querySelector('#using .logo-grid');

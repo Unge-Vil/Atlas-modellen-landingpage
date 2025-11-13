@@ -2,7 +2,7 @@
   var doc = document;
   var root = doc.documentElement;
   var body = doc.body;
-  var basePath = root.dataset.base || '.';
+  var basePath = root.dataset.base || 'https://atlasmodel.org';
   var lang = (body && body.dataset.lang) || root.lang || 'en';
   var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

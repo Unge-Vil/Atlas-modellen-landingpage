@@ -2,7 +2,7 @@
   "supporters": [
     {
       "name": "GitBook",
-      "logo": "assets/img/GitBookLogoLight.svg",
+      "logo": "https://atlasmodel.org/assets/img/GitBookLogoLight.svg",
       "url": "https://www.gitbook.com/"
     },
     {

@@ -4,7 +4,7 @@
       "id": "idelab",
       "title": "Idélab",
       "description": "Finn idéer sammen med ungdom og gjør dem klare for testing.",
-      "icon": "assets/img/module-idelab.png",
+      "icon": "https://atlasmodel.org/assets/img/module-idelab.png",
       "theme": "soloppgang",
       "link": "https://docs.atlasmodel.org#idelab"
     },
@@ -12,7 +12,7 @@
       "id": "blanke-ark",
       "title": "Blanke Ark",
       "description": "Bygg felles forståelse og forventninger før dere setter retningen sammen.",
-      "icon": "assets/img/module-blanke-ark.png",
+      "icon": "https://atlasmodel.org/assets/img/module-blanke-ark.png",
       "theme": "blanke",
       "link": "https://docs.atlasmodel.org#blanke-ark"
     },
@@ -20,7 +20,7 @@
       "id": "forstaelse",
       "title": "Forståelse",
       "description": "Utforsk innsikt, data og historier for å forankre neste steg.",
-      "icon": "assets/img/module-forstaelse.png",
+      "icon": "https://atlasmodel.org/assets/img/module-forstaelse.png",
       "theme": "forstaelse",
       "link": "https://docs.atlasmodel.org#forstaelse"
     },
@@ -28,7 +28,7 @@
       "id": "gi-det-videre",
       "title": "Gi det Videre",
       "description": "Del læring og løsninger slik at flere kan bygge videre.",
-      "icon": "assets/img/module-gi-det-videre.png",
+      "icon": "https://atlasmodel.org/assets/img/module-gi-det-videre.png",
       "theme": "deling",
       "link": "https://docs.atlasmodel.org#gi-det-videre"
     }
@@ -38,7 +38,7 @@
       "id": "idelab",
       "title": "Idea Lab",
       "description": "Co-create ideas with young people and prepare them for quick testing.",
-      "icon": "assets/img/module-idelab.png",
+      "icon": "https://atlasmodel.org/assets/img/module-idelab.png",
       "theme": "soloppgang",
       "link": "https://docs.atlasmodel.org#idelab",
       "cta": "Read more"
@@ -47,7 +47,7 @@
       "id": "blank-slate",
       "title": "Blank Slate",
       "description": "Build shared expectations and direction before you commit to action.",
-      "icon": "assets/img/module-blanke-ark.png",
+      "icon": "https://atlasmodel.org/assets/img/module-blanke-ark.png",
       "theme": "blanke",
       "link": "https://docs.atlasmodel.org#blanke-ark",
       "cta": "Read more"
@@ -56,7 +56,7 @@
       "id": "understanding",
       "title": "Understanding",
       "description": "Explore insight, data, and stories so every step stays grounded.",
-      "icon": "assets/img/module-forstaelse.png",
+      "icon": "https://atlasmodel.org/assets/img/module-forstaelse.png",
       "theme": "forstaelse",
       "link": "https://docs.atlasmodel.org#forstaelse",
       "cta": "Read more"
@@ -65,7 +65,7 @@
       "id": "share-it",
       "title": "Share It Forward",
       "description": "Spread learning and solutions so more people can build on them.",
-      "icon": "assets/img/module-gi-det-videre.png",
+      "icon": "https://atlasmodel.org/assets/img/module-gi-det-videre.png",
       "theme": "deling",
       "link": "https://docs.atlasmodel.org#gi-det-videre",
       "cta": "Read more"
