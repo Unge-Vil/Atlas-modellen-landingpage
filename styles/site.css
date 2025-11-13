@@ -43,6 +43,18 @@ html, body {
   padding: 0;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 body {
   font-family: var(--font-base);
   background: var(--color-bg);
@@ -519,9 +531,9 @@ img {
 }
 
 .module-card__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 18px;
+  width: 72px;
+  height: 72px;
+  border-radius: 22px;
   display: grid;
   place-items: center;
   background: rgba(255, 255, 255, 0.28);
@@ -530,8 +542,8 @@ img {
 }
 
 .module-card__icon img {
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
 }
 
@@ -548,15 +560,19 @@ img {
 .module-card__cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
   color: rgba(10, 11, 18, 0.85);
   font-weight: 600;
   text-decoration: none;
+  background: rgba(255, 255, 255, 0.32);
 }
 
 .module-card__cta::after {
   content: "↗";
-  font-size: 0.85em;
+  font-size: 1.1rem;
   transition: transform 0.3s ease;
 }
 
