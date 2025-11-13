@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Varselikon</title>
+  <path fill="#0b0b13" d="M2.5 54.5 29.3 6.4c1.1-1.9 3.7-1.9 4.8 0l26.8 48.1c1.1 1.9-.3 4.3-2.4 4.3H4.9c-2.1 0-3.5-2.3-2.4-4.3Z"/>
+  <path fill="#f9d65c" d="M6 52h52L32 10 6 52Z"/>
+  <rect x="30" y="22" width="4" height="18" rx="2" fill="#0b0b13"/>
+  <circle cx="32" cy="46" r="3" fill="#0b0b13"/>
+</svg>
