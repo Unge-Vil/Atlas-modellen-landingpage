@@ -457,7 +457,7 @@ img {
   padding: var(--spacing-xl) 0;
 }
 
-.section--collab {
+.section--collab { 
   position: relative;
   padding: calc(var(--spacing-xl) * 0.85) 0;
   background: linear-gradient(135deg, rgba(242, 65, 116, 0.9), rgba(245, 133, 91, 0.85));
@@ -515,6 +515,46 @@ img {
 
 .theme-light .section--collab {
   color: #ffffff;
+}
+
+.section--sponsors {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section--sponsors .section__header {
+  align-items: center;
+  text-align: center;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.section--sponsors .section__lead {
+  max-width: 520px;
+  color: var(--color-muted);
+}
+
+.sponsor-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 3.5rem);
+  flex-wrap: wrap;
+}
+
+.sponsor-logos__item {
+  min-width: min(220px, 100%);
+  padding: clamp(1.5rem, 4vw, 2rem);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  display: grid;
+  place-items: center;
+}
+
+.sponsor-logos__item img {
+  max-height: 56px;
+  width: auto;
 }
 
 .section__header {
