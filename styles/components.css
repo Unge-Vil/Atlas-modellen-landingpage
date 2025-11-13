@@ -19,7 +19,7 @@
   inset-inline: -20%;
   bottom: -18%;
   height: clamp(12rem, 20vw, 16rem);
-  background: url("../assets/svg/waves/hero-wave.svg") center/cover no-repeat;
+  background: url("https://atlasmodel.org/assets/svg/waves/hero-wave.svg") center/cover no-repeat;
   background-size: 200% 100%;
   animation: wave var(--wave-duration) linear infinite;
   opacity: 0.65;
@@ -113,7 +113,7 @@
   left: 0;
   right: 0;
   height: clamp(6rem, 12vw, 9rem);
-  background: url("../assets/svg/waves/section-wave.svg") center/cover no-repeat;
+  background: url("https://atlasmodel.org/assets/svg/waves/section-wave.svg") center/cover no-repeat;
   transform: rotate(180deg);
   opacity: 0.5;
 }
@@ -318,7 +318,7 @@ body:not(.theme-dark)[data-theme="light"] .team-spotlight blockquote {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: clamp(2.5rem, 8vw, 4.5rem);
-  mask-image: url("../assets/svg/waves/portrait-mask.svg");
+  mask-image: url("https://atlasmodel.org/assets/svg/waves/portrait-mask.svg");
   mask-size: cover;
   mask-repeat: no-repeat;
   mask-position: center;

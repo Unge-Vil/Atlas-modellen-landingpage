@@ -1,6 +1,6 @@
 (function () {
   const root = document.documentElement;
-  const basePath = root.dataset.base || '.';
+  const basePath = root.dataset.base || 'https://atlasmodel.org';
   const lang = (document.body && document.body.dataset.lang) || root.lang || 'en';
 
   const translations = {
