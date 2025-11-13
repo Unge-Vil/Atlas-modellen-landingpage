@@ -30,20 +30,26 @@
     <div class="container hero__inner">
       <div class="topbar" role="navigation" aria-label="Hovedmeny">
         <a class="topbar__brand" href="#topp" aria-label="Atlas-modellen forside">Atlas-modellen</a>
-        <nav class="topbar__nav" aria-label="Snarveier">
-          <a href="#hva-er">Hva er</a>
-          <a href="#moduler">Moduler</a>
-          <a href="#stemmer">Stemmer</a>
-          <a href="#kontakt">Kontakt</a>
-        </nav>
-        <div class="topbar__actions">
-          <button class="icon-toggle" type="button" data-theme-toggle data-label-light="Bytt til lysmodus" data-label-dark="Bytt til mørk modus" aria-pressed="false" aria-label="Bytt til lysmodus">
-            <span aria-hidden="true" data-theme-icon>🌙</span>
-          </button>
-          <nav class="lang-switch" aria-label="Velg språk">
-            <a href="/no/" data-lang-switch="no" aria-current="true">NO</a>
-            <a href="/en/" data-lang-switch="en">EN</a>
+        <button class="topbar__menu-toggle" type="button" data-mobile-menu-toggle aria-controls="primary-navigation" aria-expanded="false" aria-label="Åpne meny" data-label-open="Åpne meny" data-label-close="Lukk meny">
+          <span class="topbar__menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="topbar__menu-toggle-label">Meny</span>
+        </button>
+        <div class="topbar__menu" id="primary-navigation" data-mobile-menu>
+          <nav class="topbar__nav" aria-label="Snarveier">
+            <a href="#hva-er" data-menu-close>Hva er</a>
+            <a href="#moduler" data-menu-close>Moduler</a>
+            <a href="#stemmer" data-menu-close>Stemmer</a>
+            <a href="#kontakt" data-menu-close>Kontakt</a>
           </nav>
+          <div class="topbar__actions">
+            <button class="icon-toggle" type="button" data-theme-toggle data-label-light="Bytt til lysmodus" data-label-dark="Bytt til mørk modus" aria-pressed="false" aria-label="Bytt til lysmodus">
+              <span aria-hidden="true" data-theme-icon>🌙</span>
+            </button>
+            <nav class="lang-switch" aria-label="Velg språk">
+              <a href="/no/" data-lang-switch="no" aria-current="true" data-menu-close>NO</a>
+              <a href="/en/" data-lang-switch="en" data-menu-close>EN</a>
+            </nav>
+          </div>
         </div>
       </div>
       <div class="hero__body">
