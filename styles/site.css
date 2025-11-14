@@ -104,7 +104,7 @@ img {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: var(--spacing-xl) 0 calc(var(--spacing-xl) * 0.8);
+  padding: var(--spacing-xl) 0 var(--spacing-md);
   background: var(--gradient-hero);
 }
 
@@ -494,7 +494,7 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 0.35rem;
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-sm);
   color: var(--color-muted);
   font-size: 0.85rem;
 }
@@ -753,7 +753,7 @@ img {
 }
 
 .section--status {
-  padding-bottom: var(--spacing-md);
+  padding: var(--spacing-lg) 0 var(--spacing-md);
 }
 
 .status-box {
