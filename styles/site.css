@@ -747,13 +747,6 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.theme-light .module-card {
-  color: #f5f7ff;
-  background: linear-gradient(155deg, rgba(20, 22, 40, 0.96), rgba(6, 7, 18, 0.98));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 24px 36px rgba(8, 10, 24, 0.55);
-}
-
 .module-card .badge {
   justify-self: start;
   padding: 0.25rem 0.65rem;
@@ -763,11 +756,6 @@ img {
   text-transform: uppercase;
   background: rgba(255, 255, 255, 0.4);
   color: rgba(10, 11, 18, 0.85);
-}
-
-.theme-light .module-card .badge {
-  background: rgba(255, 255, 255, 0.16);
-  color: rgba(245, 247, 255, 0.9);
 }
 
 .module-card[data-theme="soloppgang"] {
@@ -784,26 +772,6 @@ img {
 
 .module-card[data-theme="deling"] {
   background: linear-gradient(135deg, rgba(255, 158, 196, 0.95), rgba(255, 217, 236, 0.95));
-}
-
-.theme-light .module-card[data-theme="soloppgang"] {
-  background: linear-gradient(155deg, rgba(245, 133, 91, 0.32), rgba(9, 11, 25, 0.96)),
-    linear-gradient(185deg, rgba(16, 18, 36, 0.98), rgba(6, 7, 18, 0.96));
-}
-
-.theme-light .module-card[data-theme="blanke"] {
-  background: linear-gradient(155deg, rgba(111, 92, 255, 0.32), rgba(9, 11, 25, 0.96)),
-    linear-gradient(185deg, rgba(16, 18, 36, 0.98), rgba(6, 7, 18, 0.96));
-}
-
-.theme-light .module-card[data-theme="forstaelse"] {
-  background: linear-gradient(155deg, rgba(43, 201, 195, 0.28), rgba(9, 11, 25, 0.96)),
-    linear-gradient(185deg, rgba(16, 18, 36, 0.98), rgba(6, 7, 18, 0.96));
-}
-
-.theme-light .module-card[data-theme="deling"] {
-  background: linear-gradient(155deg, rgba(255, 158, 196, 0.32), rgba(9, 11, 25, 0.96)),
-    linear-gradient(185deg, rgba(16, 18, 36, 0.98), rgba(6, 7, 18, 0.96));
 }
 
 .module-card__icon {
@@ -823,14 +791,6 @@ img {
   object-fit: contain;
 }
 
-.theme-light .module-card__icon {
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.theme-light .module-card__icon img {
-  filter: brightness(0) invert(1);
-}
-
 .module-card__title {
   margin: 0;
   font-size: 1.4rem;
@@ -839,10 +799,6 @@ img {
 .module-card__desc {
   margin: 0;
   color: rgba(10, 11, 18, 0.85);
-}
-
-.theme-light .module-card__desc {
-  color: rgba(245, 247, 255, 0.85);
 }
 
 .module-card__cta {
@@ -856,11 +812,6 @@ img {
   font-weight: 600;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.32);
-}
-
-.theme-light .module-card__cta {
-  background: rgba(255, 255, 255, 0.18);
-  color: rgba(245, 247, 255, 0.92);
 }
 
 .module-card__cta::after {
