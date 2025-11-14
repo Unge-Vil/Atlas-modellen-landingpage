@@ -508,6 +508,206 @@ img {
   padding: var(--spacing-xl) 0;
 }
 
+.section--donate {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(245, 133, 91, 0.96), rgba(255, 210, 125, 0.96));
+  color: #341024;
+}
+
+.section--donate::before,
+.section--donate::after {
+  content: "❤";
+  position: absolute;
+  font-size: clamp(5rem, 12vw, 8rem);
+  color: rgba(255, 255, 255, 0.22);
+  pointer-events: none;
+}
+
+.section--donate::before {
+  top: -1rem;
+  left: 5%;
+  transform: rotate(-15deg);
+}
+
+.section--donate::after {
+  bottom: -2rem;
+  right: 8%;
+  transform: rotate(18deg);
+}
+
+.donation-card {
+  position: relative;
+  padding: clamp(2.75rem, 6vw, 3.75rem);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.donation-card::after {
+  content: none;
+}
+
+.donation-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.donation-card__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(52, 16, 36, 0.65);
+}
+
+.donation-card__title {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: #2a0d1d;
+}
+
+.donation-card p {
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+  color: rgba(52, 16, 36, 0.88);
+}
+
+.donation-card__thanks {
+  font-weight: 700;
+}
+
+.donation-card__support {
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(52, 16, 36, 0.78);
+}
+
+.donation-card__heart {
+  display: inline-block;
+  transform: scale(1.1);
+}
+
+.donation-card__methods {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.donation-method {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 12px 28px rgba(143, 63, 26, 0.18);
+  color: #341024;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  backdrop-filter: blur(6px);
+}
+
+.donation-method--logo {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(255, 255, 255, 0.75);
+  padding: 0.55rem 1.1rem;
+  box-shadow: 0 18px 36px rgba(143, 63, 26, 0.2);
+}
+
+.donation-method--logo img {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
+.donation-method--text {
+  background: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.donation-method__label {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #5b1b2e;
+}
+
+.donation-card__button {
+  margin-top: 0.5rem;
+  background: #ffffff;
+  color: #8c2f1a;
+  border-color: rgba(140, 47, 26, 0.28);
+  font-weight: 700;
+  box-shadow: 0 18px 38px rgba(143, 63, 26, 0.28);
+}
+
+.donation-card__button:hover,
+.donation-card__button:focus {
+  box-shadow: 0 24px 52px rgba(143, 63, 26, 0.35);
+  transform: translateY(-6px);
+}
+
+.theme-light .section--donate {
+  background: linear-gradient(135deg, #ffe2c7, #ffd4ab);
+  color: #2d0f24;
+}
+
+.theme-light .section--donate::before,
+.theme-light .section--donate::after {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.theme-light .donation-card {
+  background: transparent;
+}
+
+.theme-light .donation-card__eyebrow {
+  color: rgba(45, 13, 36, 0.55);
+}
+
+.theme-light .donation-card p {
+  color: rgba(45, 13, 36, 0.82);
+}
+
+.theme-light .donation-method {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(206, 132, 80, 0.35);
+  box-shadow: 0 16px 34px rgba(206, 132, 80, 0.24);
+}
+
+.theme-light .donation-method--logo {
+  background: #ffffff;
+  border-color: rgba(206, 132, 80, 0.28);
+}
+
+.theme-light .donation-method--text {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(206, 132, 80, 0.35);
+}
+
+.theme-light .donation-method__label {
+  color: #7b2a3a;
+}
+
+.theme-light .donation-card__button {
+  color: #8c2f1a;
+}
+
 .section--sponsors {
   background: var(--color-surface);
   border-top: 1px solid var(--color-border);
