@@ -27,6 +27,7 @@
   --color-surface: #ffffff;
   --color-text: #141526;
   --color-muted: #4a4c63;
+  --color-highlight: #ad5400;
   --color-border: rgba(20, 21, 38, 0.12);
   --gradient-hero: radial-gradient(circle at 10% 10%, rgba(255, 187, 120, 0.45), transparent 60%),
     radial-gradient(circle at 85% 5%, rgba(96, 90, 255, 0.35), transparent 65%),
@@ -415,9 +416,9 @@ img {
 }
 
 .theme-light .hero__collab-logo {
-  background: rgba(20, 21, 38, 0.04);
-  border-color: rgba(20, 21, 38, 0.12);
-  box-shadow: 0 14px 28px rgba(20, 21, 38, 0.08);
+  background: rgba(20, 21, 38, 0.08);
+  border-color: rgba(20, 21, 38, 0.18);
+  box-shadow: 0 18px 32px rgba(20, 21, 38, 0.12);
 }
 
 .theme-light .hero__collab-logo img {
@@ -540,6 +541,12 @@ img {
   border: 1px solid var(--color-border);
   display: grid;
   place-items: center;
+}
+
+.theme-light .sponsor-logos__item {
+  background: rgba(20, 21, 38, 0.08);
+  border-color: rgba(20, 21, 38, 0.18);
+  box-shadow: 0 18px 32px rgba(20, 21, 38, 0.12);
 }
 
 .sponsor-logos__item img {
