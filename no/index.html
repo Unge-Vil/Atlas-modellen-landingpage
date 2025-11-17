@@ -1,18 +1,30 @@
 <!doctype html>
-<html lang="no" data-base="https://atlasmodel.org">
+<html lang="no" data-base="https://atlasmodel.org" data-ga-id="G-PGQLY6Y1LT">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Atlas-modellen – Åpent rammeverk for idé, mestring og samarbeid | Unge Vil</title>
   <!-- Google tag (gtag.js) -->
+  <script>
+    const ATLAS_GA_ID = 'G-PGQLY6Y1LT';
+    var atlasConsent = 'denied';
+    try {
+      atlasConsent = localStorage.getItem('atlas-ga-consent') === 'granted' ? 'granted' : 'denied';
+    } catch (err) {
+      atlasConsent = 'denied';
+    }
+    window['ga-disable-' + ATLAS_GA_ID] = atlasConsent !== 'granted';
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGQLY6Y1LT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'G-PGQLY6Y1LT');
+    gtag('consent', 'default', { analytics_storage: atlasConsent });
+    if (atlasConsent === 'granted') {
+      gtag('config', ATLAS_GA_ID, { anonymize_ip: true });
+    }
   </script>
   <meta name="description" content="Atlas-modellen er et åpent rammeverk som hjelper ungdom og organisasjoner å skape, forstå og dele løsninger sammen på tvers av sektorer.">
   <meta property="og:type" content="website">
@@ -242,11 +254,22 @@
       <p class="site-footer__meta">Lisens: CC BY-ND 4.0 · <a href="mailto:org@ungevil.no">org@ungevil.no</a></p>
       <div class="site-footer__links">
         <a href="https://creativecommons.org/licenses/by-nd/4.0/deed.no" target="_blank" rel="noopener">Creative Commons</a>
+        <a href="https://docs.atlasmodel.org/personvern" target="_blank" rel="noopener">Personvern</a>
         <a href="https://github.com/AtlasModel/Atlas-modellen-landingpage" target="_blank" rel="noopener">GitHub</a>
         <a href="/en/">English</a>
       </div>
     </div>
   </footer>
+
+  <div class="cookie-banner" data-cookie-banner hidden>
+    <div class="cookie-banner__content">
+      <p class="cookie-banner__text">Vi bruker Google Analytics for å forstå trafikken. Vi samler ikke annen persondata. Les vår <a href="https://docs.atlasmodel.org/personvern" target="_blank" rel="noopener">personvernerklæring</a>.</p>
+      <div class="cookie-banner__actions">
+        <button class="button button--primary" type="button" data-cookie-accept>Godta analyse</button>
+        <button class="button button--ghost" type="button" data-cookie-reject>Avslå</button>
+      </div>
+    </div>
+  </div>
 
   <script src="https://atlasmodel.org/scripts/site.js" defer></script>
 </body>

@@ -4,6 +4,7 @@
   var body = doc.body;
   var basePath = root.dataset.base || 'https://atlasmodel.org';
   var lang = (body && body.dataset.lang) || root.lang || 'en';
+  var gaId = root.dataset.gaId || 'G-PGQLY6Y1LT';
   var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var translations = {
@@ -26,6 +27,68 @@
       heroFallback: ['For creativity.', 'For collaboration.', 'For young people.'],
     },
   };
+
+  function getStoredAnalyticsConsent() {
+    try {
+      return localStorage.getItem('atlas-ga-consent');
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function setStoredAnalyticsConsent(value) {
+    try {
+      localStorage.setItem('atlas-ga-consent', value);
+    } catch (err) {
+      /* Do nothing if storage fails */
+    }
+  }
+
+  function applyAnalyticsConsent(consent) {
+    var disableKey = 'ga-disable-' + gaId;
+    var isGranted = consent === 'granted';
+    window[disableKey] = !isGranted;
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', { analytics_storage: isGranted ? 'granted' : 'denied' });
+      if (isGranted) {
+        window.gtag('config', gaId, { anonymize_ip: true });
+      }
+    }
+  }
+
+  function initCookieBanner() {
+    var banner = doc.querySelector('[data-cookie-banner]');
+    if (!banner) return;
+
+    var accept = banner.querySelector('[data-cookie-accept]');
+    var reject = banner.querySelector('[data-cookie-reject]');
+    var storedConsent = getStoredAnalyticsConsent();
+
+    if (storedConsent === 'granted' || storedConsent === 'denied') {
+      applyAnalyticsConsent(storedConsent);
+      return;
+    }
+
+    banner.hidden = false;
+
+    function dismiss(consent) {
+      setStoredAnalyticsConsent(consent);
+      applyAnalyticsConsent(consent);
+      banner.setAttribute('hidden', 'hidden');
+    }
+
+    if (accept) {
+      accept.addEventListener('click', function () {
+        dismiss('granted');
+      });
+    }
+
+    if (reject) {
+      reject.addEventListener('click', function () {
+        dismiss('denied');
+      });
+    }
+  }
 
   function resolveAsset(path) {
     if (!path) return '';
@@ -506,6 +569,7 @@
   }
 
   function start() {
+    initCookieBanner();
     initMobileMenu();
     initThemeToggle();
     initLanguageSwitch();
