@@ -75,6 +75,7 @@
       setStoredAnalyticsConsent(consent);
       applyAnalyticsConsent(consent);
       banner.setAttribute('hidden', 'hidden');
+      banner.style.display = 'none';
     }
 
     if (accept) {
