@@ -346,6 +346,8 @@
     var t = translations[lang] || translations.en;
 
     var list = Array.isArray(modules) ? modules : [];
+    var revealDelayStep = 0.08;
+    var renderQueue = [];
 
     container.innerHTML = '';
     if (!list.length) {
@@ -356,7 +358,51 @@
       return;
     }
 
-    list.forEach(function (module) {
+    function resetTilt(card) {
+      card.style.setProperty('--tilt-rotate-x', '0deg');
+      card.style.setProperty('--tilt-rotate-y', '0deg');
+      card.style.setProperty('--tilt-parallax-x', '0px');
+      card.style.setProperty('--tilt-parallax-y', '0px');
+      card.style.setProperty('--tilt-glow-x', '50%');
+      card.style.setProperty('--tilt-glow-y', '50%');
+    }
+
+    function addTiltListeners(card) {
+      if (prefersReducedMotion) return;
+      var maxTilt = 6;
+      var maxParallax = 8;
+
+      resetTilt(card);
+
+      var handleMove = function (event) {
+        var rect = card.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        var centerX = rect.width / 2;
+        var centerY = rect.height / 2;
+        var rotateX = ((centerY - y) / centerY) * maxTilt;
+        var rotateY = ((x - centerX) / centerX) * maxTilt;
+        var parallaxX = ((x - centerX) / centerX) * maxParallax;
+        var parallaxY = ((y - centerY) / centerY) * maxParallax;
+        var glowX = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        var glowY = Math.max(0, Math.min(100, (y / rect.height) * 100));
+
+        card.style.setProperty('--tilt-rotate-x', rotateX.toFixed(2) + 'deg');
+        card.style.setProperty('--tilt-rotate-y', rotateY.toFixed(2) + 'deg');
+        card.style.setProperty('--tilt-parallax-x', parallaxX.toFixed(2) + 'px');
+        card.style.setProperty('--tilt-parallax-y', parallaxY.toFixed(2) + 'px');
+        card.style.setProperty('--tilt-glow-x', glowX.toFixed(1) + '%');
+        card.style.setProperty('--tilt-glow-y', glowY.toFixed(1) + '%');
+      };
+
+      card.addEventListener('pointermove', handleMove);
+      card.addEventListener('pointerenter', handleMove);
+      card.addEventListener('pointerleave', function () {
+        resetTilt(card);
+      });
+    }
+
+    list.forEach(function (module, index) {
       var card = doc.createElement('article');
       card.className = 'module-card';
       if (module.theme) {
@@ -388,7 +434,35 @@
       desc.textContent = module.description;
       card.appendChild(desc);
 
+      addTiltListeners(card);
+
+      if (!prefersReducedMotion) {
+        card.setAttribute('data-reveal', '');
+        var stagger = typeof revealDelayStep === 'number' ? revealDelayStep * index : 0;
+        var formattedDelay = formatSeconds(stagger);
+        if (formattedDelay) {
+          card.style.setProperty('--reveal-delay', formattedDelay);
+        }
+        renderQueue.push({ card: card, delay: stagger });
+      }
+
       container.appendChild(card);
+    });
+
+    if (!prefersReducedMotion && renderQueue.length) {
+      window.requestAnimationFrame(function () {
+        renderQueue.forEach(function (entry) {
+          var delayMs = Math.max(entry.delay, 0) * 1000;
+          setTimeout(function () {
+            entry.card.classList.add('is-visible');
+          }, delayMs + 30);
+        });
+      });
+      return;
+    }
+
+    renderQueue.forEach(function (entry) {
+      entry.card.classList.add('is-visible');
     });
   }
 
