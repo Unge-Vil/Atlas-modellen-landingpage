@@ -627,6 +627,7 @@ body.is-loaded .hero__actions > *:nth-child(3),
 
 .pin-layout--donate {
   align-items: stretch;
+  justify-items: center;
 }
 
 .section--donate::before,
