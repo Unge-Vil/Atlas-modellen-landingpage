@@ -1,18 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-ga-id="G-PGQLY6Y1LT">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Atlas Model – Redirecting…</title>
   <!-- Google tag (gtag.js) -->
+  <script>
+    const ATLAS_GA_ID = 'G-PGQLY6Y1LT';
+    var atlasConsent = 'denied';
+    try {
+      atlasConsent = localStorage.getItem('atlas-ga-consent') === 'granted' ? 'granted' : 'denied';
+    } catch (err) {
+      atlasConsent = 'denied';
+    }
+    window['ga-disable-' + ATLAS_GA_ID] = atlasConsent !== 'granted';
+  </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGQLY6Y1LT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'G-PGQLY6Y1LT');
+    gtag('consent', 'default', { analytics_storage: atlasConsent });
+    if (atlasConsent === 'granted') {
+      gtag('config', ATLAS_GA_ID, { anonymize_ip: true });
+    }
   </script>
   <script>
     (function() {
