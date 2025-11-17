@@ -12,8 +12,8 @@
       moduleCta: 'Les mer',
       moduleCtaExternal: 'Les mer',
       testimonialsFallback: 'Vi samler nye historier.',
-      statusFallback: 'Atlas er under utvikling',
-      statusDescriptionFallback: 'Vi bygger videre sammen med ungdom og partnere over hele landet.',
+      statusFallback: 'Atlas er i planleggingsfasen',
+      statusDescriptionFallback: 'Vi planlegger innholdet og søker partnere som kan bygge det sammen med oss.',
       heroFallback: ['For kreativitet.', 'For samarbeid.', 'For ungdom.'],
     },
     en: {
@@ -21,8 +21,8 @@
       moduleCta: 'Read more',
       moduleCtaExternal: 'Read more',
       testimonialsFallback: 'More stories are coming soon.',
-      statusFallback: 'Atlas is in active development',
-      statusDescriptionFallback: 'We are building it together with young people and partners across Norway.',
+      statusFallback: 'Atlas is in the planning phase',
+      statusDescriptionFallback: 'We are shaping the content and looking for partners to build it with us.',
       heroFallback: ['For creativity.', 'For collaboration.', 'For young people.'],
     },
   };
