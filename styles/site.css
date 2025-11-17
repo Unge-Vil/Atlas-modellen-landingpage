@@ -116,6 +116,48 @@ img {
   opacity: 0.85;
   pointer-events: none;
   mix-blend-mode: screen;
+  animation: hero-glow-drift 10s ease-in-out infinite alternate;
+}
+
+@keyframes hero-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hero-glow-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: saturate(1);
+  }
+
+  50% {
+    transform: translate3d(-8px, 10px, 0) scale(1.02);
+    filter: saturate(1.08);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: saturate(1);
+  }
 }
 
 .hero__inner {
@@ -290,6 +332,89 @@ img {
   flex-direction: column;
   gap: var(--spacing-sm);
   max-width: 650px;
+}
+
+.hero__badge .badge,
+.hero h1,
+.hero__lead,
+.hero__sub,
+.hero__phrases,
+.hero__actions,
+.hero__actions > * {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+}
+
+body.is-loaded .hero__badge .badge,
+.hero.is-loaded .hero__badge .badge {
+  animation: hero-fade-up 0.85s ease forwards;
+  animation-delay: 0.05s;
+}
+
+body.is-loaded .hero h1,
+.hero.is-loaded h1 {
+  animation: hero-fade-up 0.9s ease forwards;
+  animation-delay: 0.18s;
+}
+
+body.is-loaded .hero__lead,
+.hero.is-loaded .hero__lead {
+  animation: hero-fade-up 0.9s ease forwards;
+  animation-delay: 0.3s;
+}
+
+body.is-loaded .hero__sub,
+.hero.is-loaded .hero__sub {
+  animation: hero-fade-up 0.95s ease forwards;
+  animation-delay: 0.4s;
+}
+
+body.is-loaded .hero__phrases,
+.hero.is-loaded .hero__phrases {
+  animation: hero-fade-left 0.9s ease forwards;
+  animation-delay: 0.5s;
+}
+
+body.is-loaded .hero__actions,
+.hero.is-loaded .hero__actions {
+  animation: hero-fade-up 0.9s ease forwards;
+  animation-delay: 0.6s;
+}
+
+body.is-loaded .hero__actions > *:nth-child(1),
+.hero.is-loaded .hero__actions > *:nth-child(1) {
+  animation: hero-fade-up 0.8s ease forwards;
+  animation-delay: 0.65s;
+}
+
+body.is-loaded .hero__actions > *:nth-child(2),
+.hero.is-loaded .hero__actions > *:nth-child(2) {
+  animation: hero-fade-up 0.85s ease forwards;
+  animation-delay: 0.75s;
+}
+
+body.is-loaded .hero__actions > *:nth-child(3),
+.hero.is-loaded .hero__actions > *:nth-child(3) {
+  animation: hero-fade-up 0.9s ease forwards;
+  animation-delay: 0.85s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__glow {
+    animation: none;
+  }
+
+  .hero__badge .badge,
+  .hero h1,
+  .hero__lead,
+  .hero__sub,
+  .hero__phrases,
+  .hero__actions,
+  .hero__actions > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 .hero__badge .badge {

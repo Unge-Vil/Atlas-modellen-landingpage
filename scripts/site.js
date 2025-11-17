@@ -567,7 +567,31 @@
     window.addEventListener('resize', requestTick);
   }
 
+  function markHeroLoaded() {
+    var target = doc.querySelector('.hero');
+    var apply = function () {
+      body.classList.add('is-loaded');
+      if (target) {
+        target.classList.add('is-loaded');
+      }
+    };
+
+    if (prefersReducedMotion) {
+      apply();
+      return;
+    }
+
+    if (typeof window.requestAnimationFrame === 'function') {
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(apply);
+      });
+    } else {
+      setTimeout(apply, 30);
+    }
+  }
+
   function start() {
+    markHeroLoaded();
     initCookieBanner();
     initMobileMenu();
     initThemeToggle();
