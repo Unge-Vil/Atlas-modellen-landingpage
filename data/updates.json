@@ -1,14 +1,14 @@
 {
   "no": {
     "status": {
-      "title": "Atlas er under utvikling",
-      "description": "Vi forbedrer modulene fortløpende sammen med ungdom og organisasjoner som tester dem."
+      "title": "Atlas er i planleggingsfasen",
+      "description": "Vi jobber med å sikre midler og samarbeidspartnere før vi kan teste og utvikle modulene."
     }
   },
   "en": {
     "status": {
-      "title": "Atlas is in active development",
-      "description": "We keep refining each module with young people and organisations who test them."
+      "title": "Atlas is in the planning phase",
+      "description": "We are securing funding and partners before we can start testing and developing the modules."
     }
   }
 }

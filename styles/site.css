@@ -600,7 +600,7 @@ img {
 }
 
 .donation-card__button {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   background: #ffffff;
   color: #8c2f1a;
   border-color: rgba(140, 47, 26, 0.28);
@@ -617,7 +617,7 @@ img {
 }
 
 .donation-card__contact {
-  margin: 1.75rem auto 0;
+  margin: 2rem auto 0;
   max-width: 480px;
   font-size: 0.95rem;
   color: rgba(52, 16, 36, 0.82);
