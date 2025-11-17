@@ -342,7 +342,6 @@
       if (module.theme) {
         card.setAttribute('data-theme', module.theme);
       }
-      card.setAttribute('tabindex', '0');
 
       var badge = doc.createElement('span');
       badge.className = 'badge';
@@ -368,19 +367,6 @@
       desc.className = 'module-card__desc';
       desc.textContent = module.description;
       card.appendChild(desc);
-
-      var cta = doc.createElement('a');
-      cta.className = 'module-card__cta';
-      cta.href = module.link || 'https://docs.atlasmodel.org';
-      cta.target = '_blank';
-      cta.rel = 'noopener';
-      var ctaLabel = module.cta || t.moduleCta;
-      cta.setAttribute('aria-label', ctaLabel + ' – ' + module.title);
-      var srText = doc.createElement('span');
-      srText.className = 'visually-hidden';
-      srText.textContent = ctaLabel;
-      cta.appendChild(srText);
-      card.appendChild(cta);
 
       container.appendChild(card);
     });

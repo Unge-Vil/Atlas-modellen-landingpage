@@ -56,7 +56,6 @@
     data.forEach(function (module) {
       const card = document.createElement('article');
       card.className = 'module-card ' + (module.class || '');
-      card.tabIndex = 0;
 
       const badge = document.createElement('span');
       badge.className = 'badge';
