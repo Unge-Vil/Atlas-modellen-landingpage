@@ -30,6 +30,26 @@
     },
   };
 
+  function parseSeconds(value) {
+    if (typeof value !== 'string' || value.trim() === '') return null;
+    var numeric = parseFloat(value);
+    if (isNaN(numeric)) return null;
+    if (/ms$/i.test(value.trim())) {
+      return numeric / 1000;
+    }
+    return numeric;
+  }
+
+  function formatSeconds(value) {
+    if (typeof value !== 'number' || !isFinite(value)) return null;
+    var safe = Math.max(value, 0);
+    var text = safe.toFixed(3).replace(/\.0+$/, '').replace(/(\.\d*?)0+$/, '$1');
+    if (text === '' || text === '.') {
+      text = '0';
+    }
+    return text + 's';
+  }
+
   function getStoredAnalyticsConsent() {
     try {
       return localStorage.getItem('atlas-ga-consent');
@@ -489,8 +509,92 @@
     var revealItems = Array.prototype.slice.call(doc.querySelectorAll('[data-reveal]'));
     if (!revealItems.length) return;
 
+    var observed = [];
+
+    function applyRevealVars(target, options) {
+      var direction = (options && options.direction) || 'up';
+      var distance = parseFloat(target.getAttribute('data-reveal-distance'));
+      var offset = isNaN(distance) ? 32 : distance;
+      var translateX = '0px';
+      var translateY = offset + 'px';
+      var scale = 1;
+      var blur = '0px';
+
+      switch (direction) {
+        case 'left':
+          translateX = '-' + offset + 'px';
+          translateY = '0px';
+          break;
+        case 'right':
+          translateX = offset + 'px';
+          translateY = '0px';
+          break;
+        case 'scale':
+          translateX = '0px';
+          translateY = '0px';
+          scale = 0.94;
+          break;
+        case 'blur':
+          translateX = '0px';
+          translateY = '0px';
+          blur = '12px';
+          break;
+        default:
+          translateX = '0px';
+          translateY = offset + 'px';
+          break;
+      }
+
+      target.style.setProperty('--reveal-direction', direction);
+      target.style.setProperty('--reveal-translate-x', translateX);
+      target.style.setProperty('--reveal-translate-y', translateY);
+      target.style.setProperty('--reveal-scale', scale);
+      target.style.setProperty('--reveal-blur', blur);
+
+      if (options && typeof options.delay === 'number') {
+        var formatted = formatSeconds(options.delay);
+        if (formatted) {
+          target.style.setProperty('--reveal-delay', formatted);
+        }
+      }
+    }
+
+    function configureItem(item) {
+      var baseDirection = item.getAttribute('data-reveal-direction') || 'up';
+      var baseDelaySeconds = parseSeconds(item.getAttribute('data-reveal-delay')) || 0;
+      var staggerSeconds = parseSeconds(item.getAttribute('data-reveal-stagger'));
+      var hasStagger = typeof staggerSeconds === 'number' && staggerSeconds > 0;
+
+      if (hasStagger) {
+        var targets = Array.prototype.slice.call(item.querySelectorAll('[data-reveal-item]'));
+        if (!targets.length && item.children && item.children.length) {
+          targets = Array.prototype.slice.call(item.children);
+        }
+
+        targets.forEach(function (child, index) {
+          if (!child.hasAttribute('data-reveal')) {
+            child.setAttribute('data-reveal', '');
+          }
+
+          var childDirection = child.getAttribute('data-reveal-direction') || baseDirection;
+          var childDelay = parseSeconds(child.getAttribute('data-reveal-delay'));
+          var totalDelay = typeof childDelay === 'number' ? childDelay : baseDelaySeconds + index * staggerSeconds;
+
+          applyRevealVars(child, { direction: childDirection, delay: totalDelay });
+          observed.push(child);
+        });
+        item.classList.add('is-visible');
+        return;
+      }
+
+      applyRevealVars(item, { direction: baseDirection, delay: baseDelaySeconds });
+      observed.push(item);
+    }
+
+    revealItems.forEach(configureItem);
+
     if (prefersReducedMotion || typeof IntersectionObserver !== 'function') {
-      revealItems.forEach(function (item) {
+      observed.forEach(function (item) {
         item.classList.add('is-visible');
       });
       return;
@@ -508,7 +612,7 @@
       rootMargin: '0px 0px -10% 0px'
     });
 
-    revealItems.forEach(function (item) {
+    observed.forEach(function (item) {
       observer.observe(item);
     });
   }
@@ -567,6 +671,61 @@
     window.addEventListener('resize', requestTick);
   }
 
+  function initPinnedMoments() {
+    var pinnedSections = Array.prototype.slice.call(doc.querySelectorAll('[data-pin]'));
+    if (!pinnedSections.length) return;
+
+    pinnedSections.forEach(function (section) {
+      var top = parseFloat(section.getAttribute('data-pin-top'));
+      if (!isNaN(top)) {
+        section.style.setProperty('--pin-sticky-top', top + 'vh');
+      }
+      section.classList.add('is-pinned-ready');
+    });
+
+    if (prefersReducedMotion) {
+      pinnedSections.forEach(function (section) {
+        section.classList.add('is-pinned-active');
+        section.style.setProperty('--pin-progress', '0');
+      });
+      return;
+    }
+
+    var ticking = false;
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function updateProgress() {
+      ticking = false;
+      var viewportHeight = window.innerHeight || root.clientHeight || 0;
+
+      pinnedSections.forEach(function (section) {
+        if (!doc.body.contains(section)) return;
+
+        var rect = section.getBoundingClientRect();
+        var total = rect.height + viewportHeight;
+        var progress = total > 0 ? clamp((viewportHeight - rect.top) / total, 0, 1) : 0;
+
+        section.style.setProperty('--pin-progress', progress.toFixed(3));
+        section.classList.toggle('is-pinned-active', rect.bottom >= 0 && rect.top <= viewportHeight);
+      });
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateProgress);
+      }
+    }
+
+    updateProgress();
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+    window.addEventListener('resize', requestTick);
+  }
+
   function markHeroLoaded() {
     var target = doc.querySelector('.hero');
     var apply = function () {
@@ -598,6 +757,7 @@
     initLanguageSwitch();
     initScrollReveal();
     initQuoteParallax();
+    initPinnedMoments();
 
     var dataRequests = [
       fetchJSON(basePath + '/data/modules.json'),
