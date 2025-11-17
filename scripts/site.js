@@ -15,6 +15,7 @@
       testimonialsFallback: 'Vi samler nye historier.',
       statusFallback: 'Atlas er i planleggingsfasen',
       statusDescriptionFallback: 'Vi planlegger innholdet og søker partnere som kan bygge det sammen med oss.',
+      modulesFallback: 'Moduler kommer snart.',
       heroFallback: ['For kreativitet.', 'For samarbeid.', 'For ungdom.'],
     },
     en: {
@@ -24,6 +25,7 @@
       testimonialsFallback: 'More stories are coming soon.',
       statusFallback: 'Atlas is in the planning phase',
       statusDescriptionFallback: 'We are shaping the content and looking for partners to build it with us.',
+      modulesFallback: 'Modules are coming soon.',
       heroFallback: ['For creativity.', 'For collaboration.', 'For young people.'],
     },
   };
@@ -320,11 +322,21 @@
 
   function renderModules(modules) {
     var container = doc.querySelector('[data-modules]');
-    if (!container || !Array.isArray(modules)) return;
+    if (!container) return;
     var t = translations[lang] || translations.en;
 
+    var list = Array.isArray(modules) ? modules : [];
+
     container.innerHTML = '';
-    modules.forEach(function (module) {
+    if (!list.length) {
+      var message = doc.createElement('p');
+      message.className = 'modules__empty';
+      message.textContent = t.modulesFallback || t.statusFallback || '';
+      container.appendChild(message);
+      return;
+    }
+
+    list.forEach(function (module) {
       var card = doc.createElement('article');
       card.className = 'module-card';
       if (module.theme) {
