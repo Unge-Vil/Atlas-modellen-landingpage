@@ -1362,6 +1362,10 @@ img {
   z-index: 20;
 }
 
+.cookie-banner[hidden] {
+  display: none;
+}
+
 .cookie-banner__content {
   width: min(960px, 100%);
   display: grid;
