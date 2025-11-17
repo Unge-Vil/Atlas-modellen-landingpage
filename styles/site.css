@@ -625,6 +625,10 @@ body.is-loaded .hero__actions > *:nth-child(3),
   color: #341024;
 }
 
+.pin-layout--donate {
+  align-items: stretch;
+}
+
 .section--donate::before,
 .section--donate::after {
   content: "❤";
@@ -653,6 +657,10 @@ body.is-loaded .hero__actions > *:nth-child(3),
   text-align: center;
   max-width: 720px;
   margin: 0 auto;
+}
+
+.pin-layout--donate .donation-card {
+  margin: 0;
 }
 
 .donation-card::after {
@@ -755,6 +763,61 @@ body.is-loaded .hero__actions > *:nth-child(3),
   text-decoration-thickness: 0.08em;
 }
 
+.donation-card__art {
+  position: relative;
+  padding: clamp(2.25rem, 4vw, 3.5rem);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 44px rgba(55, 0, 28, 0.28);
+  overflow: hidden;
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+  justify-items: center;
+  min-height: 100%;
+}
+
+.donation-card__halo {
+  width: min(240px, 70%);
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+  filter: blur(2px);
+  opacity: calc(0.7 + var(--pin-progress, 0) * 0.3);
+  transform: scale(calc(0.92 + var(--pin-progress, 0) * 0.12));
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.donation-card__note {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: rgba(52, 16, 36, 0.9);
+  text-align: center;
+}
+
+.donation-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.donation-card__tag {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #2a0d1d;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.section--donate[data-pin].is-pinned-active .donation-card__art {
+  transform: translateY(calc((0.5 - var(--pin-progress)) * 26px)) scale(calc(0.94 + var(--pin-progress) * 0.08));
+}
+
 
 .theme-light .section--donate {
   background: linear-gradient(135deg, rgba(245, 133, 91, 0.96), rgba(255, 210, 125, 0.96));
@@ -776,6 +839,15 @@ body.is-loaded .hero__actions > *:nth-child(3),
 
 .theme-light .donation-card p {
   color: rgba(45, 13, 36, 0.82);
+}
+
+.theme-light .donation-card__art {
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 18px 44px rgba(140, 47, 26, 0.16);
+}
+
+.theme-light .donation-card__tag {
+  background: rgba(52, 16, 36, 0.12);
 }
 
 .theme-light .donation-card__button {
@@ -1407,26 +1479,70 @@ body.is-loaded .hero__actions > *:nth-child(3),
 }
 
 [data-reveal] {
+  --reveal-direction: up;
+  --reveal-delay: 0s;
+  --reveal-translate-x: 0px;
+  --reveal-translate-y: 32px;
+  --reveal-scale: 1;
+  --reveal-blur: 0px;
+  --reveal-duration: 0.6s;
   opacity: 0;
-  transform: translate3d(0, 32px, 0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translate3d(var(--reveal-translate-x), var(--reveal-translate-y), 0) scale(var(--reveal-scale));
+  filter: blur(var(--reveal-blur));
+  transition: opacity var(--reveal-duration) ease, transform var(--reveal-duration) ease, filter var(--reveal-duration) ease;
+  transition-delay: var(--reveal-delay);
 }
 
 [data-reveal].is-visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
-  animation: fadeSlideUp 0.7s ease forwards;
-  animation-delay: var(--reveal-delay, 0s);
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
 }
 
-@keyframes fadeSlideUp {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 32px, 0);
+.section[data-pin] {
+  --pin-progress: 0;
+  --pin-sticky-top: clamp(3rem, 12vh, 5.25rem);
+}
+
+.pin-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.75rem, 3vw, 2.75rem);
+  align-items: start;
+}
+
+.pin-layout__text,
+.pin-layout__art {
+  position: relative;
+  transition: transform 0.6s ease;
+}
+
+.pin-layout__art {
+  position: sticky;
+  top: var(--pin-sticky-top);
+}
+
+[data-pin].is-pinned-active .pin-layout__text {
+  transform: translateY(calc(-14px * var(--pin-progress)));
+}
+
+[data-pin].is-pinned-active .pin-layout__art {
+  transform: translateY(calc((0.5 - var(--pin-progress)) * 28px));
+}
+
+@media (max-width: 768px) {
+  .pin-layout {
+    grid-template-columns: 1fr;
   }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+
+  .pin-layout__art {
+    position: relative;
+    top: auto;
+    transform: none !important;
+  }
+
+  .pin-layout__text {
+    transform: none !important;
   }
 }
 
@@ -1686,7 +1802,15 @@ body.has-mobile-menu .topbar__menu {
   [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
     animation: none !important;
+  }
+
+  .pin-layout__art,
+  .pin-layout__text {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
   }
 
   .quote-section__mark {
